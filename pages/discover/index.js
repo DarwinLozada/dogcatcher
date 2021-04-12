@@ -1,25 +1,9 @@
-import Header from '../../components/Header'
-import useLogin from '../../hooks/useLogin'
+import Header from "../../components/Header"
 
-export default function Discover () {
-  const [isLoading, error, user, login] = useLogin()
-
-  console.log(user)
-
+export default function Discover() {
   return (
     <>
       <Header />
-      {
-        isLoading && <p>Wait</p>
-      }
-      {user && <img src={user.picture} />}
-      <button
-        onClick={() => {
-          login()
-        }}
-      >
-        Hola amigos
-      </button>
     </>
   )
 }
