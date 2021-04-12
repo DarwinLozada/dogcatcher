@@ -1,19 +1,25 @@
-import Header from "../../components/Header";
-import useUser, { handleLogin } from "../../stores/UserStore";
-import { useEffect } from "react";
+import Header from '../../components/Header'
+import useLogin from '../../hooks/useLogin'
 
-export default function Discover() {
-  const [user, setUser] = useUser();
+export default function Discover () {
+  const [isLoading, error, user, login] = useLogin()
 
-  useEffect(() => {
-    handleLogin().then((user) => setUser(user));
-  }, []);
+  console.log(user)
 
-  console.log(user);
   return (
     <>
       <Header />
-      {user && <img src={user.picture}></img>}
+      {
+        isLoading && <p>Wait</p>
+      }
+      {user && <img src={user.picture} />}
+      <button
+        onClick={() => {
+          login()
+        }}
+      >
+        Hola amigos
+      </button>
     </>
-  );
+  )
 }
