@@ -28,9 +28,18 @@ export const onAuthStateChanged = (onChange) => {
   })
 }
 
+export const signOut = () =>
+  firebase
+    .auth()
+    .signOut()
+    .then((res) => console.log(res))
+    .catch((err) => console.error(err))
+
 export const login = () =>
   firebase
     .auth()
     .signInWithPopup(googleProvider)
     .then(mapUserFromFirebaseAuth)
-    .catch((err) => console.error(err))
+    .catch((err) => {
+      throw new Error(err)
+    })

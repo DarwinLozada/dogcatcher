@@ -1,12 +1,21 @@
 import useLogin from "../hooks/useLogin"
+import useSignOut from "../hooks/useSignOut"
 
 export default function Header() {
-  const { isLoading, user, login } = useLogin()
+  const { isLoginLoading, loginError, user, login } = useLogin()
+  const { isSignOutLoading, signOut } = useSignOut()
+
+  console.log(loginError)
 
   return (
     <div className="flex bg-primaryWhite min-h-[100px] w-screen">
-      {isLoading && <p>Wait</p>}
-      {user && <img src={user.avatar} />}
+      {isLoginLoading && <p>Wait</p>}
+      {user && (
+        <>
+          <img src={user.avatar} />
+          <button onClick={signOut}>SignOut</button>
+        </>
+      )}
       {user === null && (
         <button
           onClick={() => {

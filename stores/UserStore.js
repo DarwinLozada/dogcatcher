@@ -15,6 +15,10 @@ export const UserProvider = ({ children }) => {
       switch (action.type) {
         case "login":
           return { ...state, user: action.payload }
+
+        case "signOut":
+          return { ...state, user: null }
+
         default:
           throw new Error("invalid action type")
       }
