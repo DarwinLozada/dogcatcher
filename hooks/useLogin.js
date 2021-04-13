@@ -17,5 +17,5 @@ export default function useLogin() {
       .catch((err) => setError(err))
   })
 
-  return [isLoading, error, user, login]
+  return { isLoading, error, user, login }
 }

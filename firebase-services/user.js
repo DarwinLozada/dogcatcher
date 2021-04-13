@@ -9,14 +9,15 @@ import firebaseConfig from "./config"
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 const mapUserFromFirebaseAuth = (userInfo) => {
-  if (userInfo) {
-    const { displayName, email, photoURL } = userInfo
+  //  If user is not loged in and is not in session, return null state
+  if (userInfo === null) return null
 
-    return {
-      name: displayName,
-      email,
-      avatar: photoURL,
-    }
+  const { displayName, email, photoURL } = userInfo
+
+  return {
+    name: displayName,
+    email,
+    avatar: photoURL,
   }
 }
 
