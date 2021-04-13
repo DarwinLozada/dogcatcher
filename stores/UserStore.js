@@ -2,9 +2,10 @@ import {
   createContext,
   useContext,
   useReducer,
-  useMemo
-
-} from 'react'
+  useMemo,
+  useEffect,
+} from "react"
+import { onAuthStateChanged } from "../firebase-services/user"
 
 const UserContext = createContext()
 
@@ -12,12 +13,20 @@ export const UserProvider = ({ children }) => {
   const [user, dispatch] = useReducer(
     (state, action) => {
       switch (action.type) {
-        case 'login':
+        case "login":
           return { ...state, user: action.payload }
         default:
-          throw new Error('invalid action type')
+          throw new Error("invalid action type")
       }
-    }, { user: null }) // User will be: userData, null or undefined
+    },
+    { user: undefined }
+  ) // User will be: userData, null or undefined
+
+  useEffect(
+    () =>
+      onAuthStateChanged((user) => dispatch({ type: "login", payload: user })),
+    []
+  )
 
   const userValue = useMemo(() => [user, dispatch], [user, dispatch])
 
@@ -26,6 +35,6 @@ export const UserProvider = ({ children }) => {
   )
 }
 
-export default function useUser () {
+export default function useUser() {
   return useContext(UserContext)
 }
