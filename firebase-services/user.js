@@ -1,10 +1,9 @@
 import firebase from "firebase"
 import "firebase/auth"
 
-import firebaseConfig from "./config"
+import "./app"
 
-// If Firebase app is alredy initialized, do not initialize it again
-!firebase.apps.length && firebase.initializeApp(firebaseConfig)
+import { registerUserInDatabase } from "./database"
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
@@ -39,7 +38,13 @@ export const login = () =>
   firebase
     .auth()
     .signInWithPopup(googleProvider)
-    .then(mapUserFromFirebaseAuth)
+    .then((user) => {
+      console.log(user)
+      if (user.additionalUserInfo.isNewUser) {
+        registerUserInDatabase(user)
+      }
+      mapUserFromFirebaseAuth(user)
+    })
     .catch((err) => {
       throw new Error(err)
     })
