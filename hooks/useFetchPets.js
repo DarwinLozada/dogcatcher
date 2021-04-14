@@ -6,16 +6,20 @@ const catsURL = "https://api.thecatapi.com/v1/breeds"
 
 export default function useFetchPets() {
   const fetcher = useCallback(async () => {
-    let petsData = []
+    try {
+      let petsData = []
 
-    const catsData = await fetch(catsURL)
-    const parsedCatsData = await catsData.json()
-    petsData = petsData.concat(parsedCatsData)
-    const dogsData = await fetch(dogsURL)
-    const parsedDogsData = await dogsData.json()
-    petsData = petsData.concat(parsedDogsData)
-    return petsData
-  }, [])
+      const catsData = await fetch(catsURL)
+      const parsedCatsData = await catsData.json()
+      petsData = petsData.concat(parsedCatsData)
+      const dogsData = await fetch(dogsURL)
+      const parsedDogsData = await dogsData.json()
+      petsData = petsData.concat(parsedDogsData)
+      return petsData
+    } catch (err) {
+      throw new Error(err)
+    }
+  })
 
   const { data, error } = useSWR("petsData", fetcher)
 
