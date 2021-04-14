@@ -10,12 +10,12 @@ const googleProvider = new firebase.auth.GoogleAuthProvider()
 const mapUserFromFirebaseAuth = (userInfo) => {
   //  If user is not loged in and is not in session, return null state
   if (userInfo === null) return null
-
-  const { displayName, email, photoURL } = userInfo
+  const { displayName, email, photoURL, uid } = userInfo
 
   return {
     name: displayName,
     email,
+    uid,
     avatar: photoURL,
   }
 }
@@ -39,7 +39,6 @@ export const login = () =>
     .auth()
     .signInWithPopup(googleProvider)
     .then((user) => {
-      console.log(user)
       if (user.additionalUserInfo.isNewUser) {
         registerUserInDatabase(user)
       }

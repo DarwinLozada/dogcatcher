@@ -20,8 +20,8 @@ export default function useFetchPets() {
   const { data, error } = useSWR("petsData", fetcher)
 
   return {
-    data,
-    error,
-    isLoading: !data && !error,
+    pets: data,
+    petsError: error,
+    petsAreLoading: !data && !error,
   }
 }
