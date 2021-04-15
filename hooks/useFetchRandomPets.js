@@ -12,6 +12,12 @@ const getRandomNumberWithMax = (max) => {
   return Math.floor(Math.random() * max + max)
 }
 
+const returnShuffledArray = (arr) => {
+  // Use spread operator to not mutate the original array
+  const shuffled = [...arr].sort(() => 0.5 - Math.random())
+  return shuffled
+}
+
 export default function useFetchRandomPets() {
   const fetcher = useCallback(async () => {
     const randomCatsPage = getRandomNumberWithMax(CATS_PAGE_LIMIT).toString()
@@ -22,12 +28,15 @@ export default function useFetchRandomPets() {
 
       const catsData = await fetch(catsURL + randomCatsPage)
       const parsedCatsData = await catsData.json()
-      console.log(parsedCatsData)
 
       petsData = petsData.concat(parsedCatsData)
+
       const dogsData = await fetch(dogsURL + randomDogsPage)
       const parsedDogsData = await dogsData.json()
+
       petsData = petsData.concat(parsedDogsData)
+      petsData = returnShuffledArray(petsData)
+
       return petsData
     } catch (err) {
       throw new Error(err)
