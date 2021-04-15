@@ -19,7 +19,7 @@ export default function useFetchPets() {
     } catch (err) {
       throw new Error(err)
     }
-  })
+  }, [])
 
   const { data, error } = useSWR("petsData", fetcher)
 
