@@ -2,6 +2,9 @@ import useSWR from "swr"
 import { useCallback } from "react"
 
 const BREEDS_LIMIT_PER_PAGE = "10"
+
+// These are the limit pages to request breeds in the TheCatApi and TheDogApi
+
 const CATS_PAGE_LIMIT = "6"
 const DOGS_PAGE_LIMIT = "17"
 

@@ -8,15 +8,11 @@ export default function Header() {
   const { isLoginLoading, loginError, user, login } = useLogin()
   const { isSignOutLoading, signOut } = useSignOut()
 
-  const { pets, petsError, petsAreLoading } = useFetchRandomPets()
-
-  console.log(pets)
-
   return (
     <div className="flex items-center bg-primaryWhite min-h-[99px] max-h-[100px] w-screen py-12 px-6">
       <div>
         <Image
-          src="/../public/static/images/DogCatcher.png"
+          src="/static/images/DogCatcher.png"
           alt="DogCatcher Logo"
           width={120}
           height={62}

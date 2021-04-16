@@ -32,7 +32,9 @@ export const signOut = () =>
     .auth()
     .signOut()
     .then((res) => console.log(res))
-    .catch((err) => console.error(err))
+    .catch((err) => {
+      throw new Error(err)
+    })
 
 export const login = () =>
   firebase
