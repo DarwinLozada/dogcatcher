@@ -1,7 +1,6 @@
 import Image from "next/image"
 
 export default function DogCard({ petInfo }) {
-  console.log(petInfo)
   let temperamentArray
   if (petInfo.temperament) {
     temperamentArray = petInfo.temperament.split(", ")

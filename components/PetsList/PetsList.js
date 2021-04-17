@@ -15,7 +15,7 @@ export default function PetsList() {
   if (petsAreLoading) return <div>Cargando...</div>
 
   return (
-    <div className="p-8 bg-softBrown">
+    <div className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4">
       {pets.map((pet) => {
         return isCat(pet) ? (
           <CatCard petInfo={pet} key={pet.name} />

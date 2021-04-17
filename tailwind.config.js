@@ -11,6 +11,10 @@ module.exports = {
         hardPink: "#EA2A69",
         softBrown: "#E5D8D8",
       },
+
+      borderRadius: {
+        card: "10px",
+      },
     },
   },
   variants: {

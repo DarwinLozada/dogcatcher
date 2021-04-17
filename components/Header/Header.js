@@ -1,12 +1,14 @@
 import useLogin from "../../hooks/useLogin"
 import useSignOut from "../../hooks/useSignOut"
-import useFetchPets from "../../hooks/useFetchPets"
-import useFetchRandomPets from "../../hooks/useFetchRandomPets"
+import useUser from "../../stores/UserStore"
 import Image from "next/image"
 
 export default function Header() {
-  const { isLoginLoading, loginError, user, login } = useLogin()
+  const { isLoginLoading, loginError, login } = useLogin()
   const { isSignOutLoading, signOut } = useSignOut()
+  const [{ user }] = useUser()
+
+  console.log(loginError)
 
   return (
     <div className="flex items-center bg-primaryWhite min-h-[99px] max-h-[100px] w-screen py-12 px-6">
