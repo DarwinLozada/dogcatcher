@@ -23,14 +23,16 @@ export default function CatCard({ petInfo }) {
   const temperamentArray = temperament.split(", ")
 
   return (
-    <div className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full">
+    <div className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
-        <div>
-          <h3>No image avaliable</h3>
+        <div className="flex flex-col items-center justify-center gap-4 my-16 z-10">
+          {" "}
+          <h3 className="font-bold text-mediumPink">No image avaliable</h3>
           <SadCat />
         </div>
       ) : (
         <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden">
+          <div className="absolute left-1/2 -ml-6 -mt-6 top-1/2 rounded-full border-gray-600 border-r-8 w-12 h-12 animate animate-spin"></div>
           <Image
             src={image.url}
             layout="intrinsic"
@@ -75,7 +77,7 @@ export default function CatCard({ petInfo }) {
             </ul>
           </li>
         </ul>
-        <div className="flex justify-between w-full mt-8 gap-6">
+        <div className="flex justify-between w-full mt-8 gap-4">
           <MoreInfo />
           <AddToFavorites />
         </div>
