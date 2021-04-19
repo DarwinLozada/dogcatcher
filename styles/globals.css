@@ -18,6 +18,10 @@
     backdrop-filter: blur(400px);
   }
 
+  .pet-card-image {
+    flex: 0 0 auto;
+  }
+
   .pet-card-gradient {
     background: linear-gradient(
       173.39deg,
