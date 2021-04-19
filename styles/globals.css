@@ -17,6 +17,14 @@
     background: linear-gradient(99.29deg, #f9f3f3 0%, #e7e7e7 114.09%);
     backdrop-filter: blur(400px);
   }
+
+  .pet-card-gradient {
+    background: linear-gradient(
+      173.39deg,
+      #ffffff -0.06%,
+      rgba(255, 219, 219, 0.76) 64.84%
+    );
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
