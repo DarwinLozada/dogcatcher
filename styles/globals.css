@@ -12,6 +12,11 @@
 
     backdrop-filter: blur(40px);
   }
+
+  .pet-info-button {
+    background: linear-gradient(99.29deg, #f9f3f3 0%, #e7e7e7 114.09%);
+    backdrop-filter: blur(400px);
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");

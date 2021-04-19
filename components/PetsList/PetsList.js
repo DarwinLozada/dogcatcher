@@ -9,13 +9,10 @@ const isCat = (pet) => {
 export default function PetsList() {
   const { pets, petsError, petsAreLoading } = useFetchRandomPets()
 
-  console.log(pets)
-  console.log(petsError)
-
   if (petsAreLoading) return <div>Cargando...</div>
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4">
+    <div className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4 mx-4 rounded-card">
       {pets.map((pet) => {
         return isCat(pet) ? (
           <CatCard petInfo={pet} key={pet.name} />

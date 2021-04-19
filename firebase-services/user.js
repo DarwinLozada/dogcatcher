@@ -21,10 +21,15 @@ const mapUserFromFirebaseAuth = (userInfo) => {
 }
 
 export const onAuthStateChanged = (onChange) => {
-  return firebase.auth().onAuthStateChanged((user) => {
-    const normalizedUser = mapUserFromFirebaseAuth(user)
-    onChange(normalizedUser)
-  })
+  try {
+    return firebase.auth().onAuthStateChanged((user) => {
+      const normalizedUser = mapUserFromFirebaseAuth(user)
+      onChange(normalizedUser)
+    })
+  } catch (err) {
+    console.log("hola")
+    throw new Error(err)
+  }
 }
 
 export const signOut = () =>

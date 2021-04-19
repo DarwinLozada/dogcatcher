@@ -8,8 +8,6 @@ export default function Header() {
   const { isSignOutLoading, signOut } = useSignOut()
   const [{ user }] = useUser()
 
-  console.log(loginError)
-
   return (
     <div className="flex items-center bg-primaryWhite min-h-[99px] max-h-[100px] w-screen py-12 px-6">
       <div>

@@ -10,6 +10,7 @@ module.exports = {
         softPink: "#F7D9D9",
         hardPink: "#EA2A69",
         softBrown: "#E5D8D8",
+        lightBrown: "#EFE7E7",
       },
 
       borderRadius: {
