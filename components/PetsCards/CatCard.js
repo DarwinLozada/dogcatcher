@@ -1,15 +1,21 @@
+// Dependencies
 import Image from "next/image"
 
+// Utility functions
+import { isObjectPresentOrEmpty } from "../../utils/objectsFunctions"
+
 // Icon Components
-import { SadCat, HeartIcon, OriginIcon, WeightIcon } from "../SvgIcons/SvgIcons"
+import {
+  SadCat,
+  HeartIcon,
+  OriginIcon,
+  WeightIcon,
+  PawIcon,
+} from "../SvgIcons/SvgIcons"
 
 // Components
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
 import MoreInfo from "../Buttons/MoreInfo/MoreInfo"
-
-const isObjectPresentOrEmpty = (obj) => {
-  return obj === undefined || !Object.keys(obj).length
-}
 
 export default function CatCard({ petInfo }) {
   const {
@@ -20,6 +26,7 @@ export default function CatCard({ petInfo }) {
     life_span: lifeSpan,
     temperament,
   } = petInfo
+
   const temperamentArray = temperament.split(", ")
 
   return (
@@ -28,11 +35,11 @@ export default function CatCard({ petInfo }) {
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-10">
           {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
-          <SadCat />
+          <SadCat className="filter drop-shadow-sm" />
         </div>
       ) : (
         <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden">
-          <div className="absolute left-1/2 -ml-6 -mt-6 top-1/2 rounded-full border-gray-600 border-r-8 w-12 h-12 animate animate-spin"></div>
+          <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
             src={image.url}
             layout="intrinsic"

@@ -14,6 +14,10 @@ module.exports = {
         lightBrown: "#EFE7E7",
       },
 
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
+
       borderRadius: {
         card: "10px",
       },
