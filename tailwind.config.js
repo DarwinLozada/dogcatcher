@@ -21,6 +21,10 @@ module.exports = {
       borderRadius: {
         card: "10px",
       },
+
+      zIndex: {
+        "-10": "-10",
+      },
     },
   },
   variants: {

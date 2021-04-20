@@ -11,6 +11,7 @@ import {
   OriginIcon,
   WeightIcon,
   PawIcon,
+  SideFaceCat,
 } from "../SvgIcons/SvgIcons"
 
 // Components
@@ -50,7 +51,8 @@ export default function CatCard({ petInfo }) {
         </div>
       )}
 
-      <section className="pet-info-section px-5 pt-8 pb-6">
+      <section className="relative pet-info-section px-5 pt-8 pb-6">
+        <SideFaceCat className="absolute right-4 top-4 w-40 -z-10" />
         <h3 className="font-medium text-2xl mb-4">{name}</h3>
         <ul className="flex flex-col mt-6 gap-[14px]">
           <li className="flex items-center">
