@@ -12,6 +12,7 @@ import {
   HeartIcon,
   PawIcon,
   SadDog,
+  SideFaceDog,
 } from "../SvgIcons/SvgIcons"
 
 // Components
@@ -57,6 +58,7 @@ export default function DogCard({ petInfo }) {
       )}
 
       <section className="pet-info-section px-5 pt-8 pb-6">
+        <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-40" />
         <h3 className="font-medium text-2xl mb-4">{name}</h3>
         <ul className="flex flex-col mt-6 gap-[14px]">
           <li className="flex items-center">
