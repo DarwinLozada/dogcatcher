@@ -27,12 +27,12 @@ This web app is in active development by me, Darwin Lozada. DogCatcher is a very
 
 I am using the next technologies for the development of this app:
 
--- **[NextJS](https://nextjs.org/)** :black_circle:
+- **[NextJS](https://nextjs.org/)** :black_circle:
 
--- **[react-transition-group](https://reactcommunity.org/react-transition-group/)** :small_blue_diamond:
+- **[react-transition-group](https://reactcommunity.org/react-transition-group/)** :small_blue_diamond:
 
--- **[TailwindCSS](https://tailwindcss.com/)** :ocean:
+- **[TailwindCSS](https://tailwindcss.com/)** :ocean:
 
--- **[Google Firebase](https://firebase.google.com/?hl=es)** :fire:
+- **[Google Firebase](https://firebase.google.com/?hl=es)** :fire:
 
---**[Vercel's SWR](https://swr.vercel.app/)** :anchor:
+- **[Vercel's SWR](https://swr.vercel.app/)** :anchor:
