@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![DogCatcherLogo](https://i.imgur.com/zzdifdG.png)
+<br />
 
-## Getting Started
+**DogCatcher** is a web app where you can find the most cute and friendly pets, search them by breed and, if you liked that spongy white hair cat you can save him in your favorites.
 
-First, run the development server:
+Discover a lot of dog and cat breeds that you didn't know existed, learn about their caracteristics, temperament... just know more about those pets, and then maybe, adopt one of them :wink:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<br />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![DogCatcherDesktopDesign](https://i.imgur.com/ZgthJMJ.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![DogCatcherMobileDesign](https://i.imgur.com/9V6Y102.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br />
+<br />
 
-## Learn More
+### DogCatcher is currently in development
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This web app is in active development by me, Darwin Lozada. DogCatcher is a very special project for me, because of my love for cats (yeah I am Team Cats), and the fact that it is inspired by my cute Cat called **Star**:star: Stay tuned for this!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br />
+## Tech Stack
 
-## Deploy on Vercel
+I am using the next technologies for the development of this app:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-- **[NextJS](https://nextjs.org/)** :black_circle:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-- **[react-transition-group](https://reactcommunity.org/react-transition-group/)** :small_blue_diamond:
+
+-- **[TailwindCSS](https://tailwindcss.com/)** :ocean:
+
+-- **[Google Firebase](https://firebase.google.com/?hl=es)** :fire:
+
+--**[Vercel's SWR](https://swr.vercel.app/)** :anchor:
