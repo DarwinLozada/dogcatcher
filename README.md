@@ -33,4 +33,6 @@ I am using the next technologies for the development of this app:
 
 - **[Google Firebase](https://firebase.google.com/?hl=es)** :fire:
 
+- **The [Dog :dog:](https://thedogapi.com/) and [Cat :cat:](https://thecatapi.com/) API**
+
 - **[Vercel's SWR](https://swr.vercel.app/)** :anchor:
