@@ -13,6 +13,8 @@ Discover a lot of dog and cat breeds that you didn't know existed, learn about t
 
 ![DogCatcherMobileDesign](https://i.imgur.com/9V6Y102.png)
 
+<br />
+
 ### DogCatcher is currently in development
 
 <br />
