@@ -14,7 +14,6 @@ Discover a lot of dog and cat breeds that you didn't know existed, learn about t
 ![DogCatcherMobileDesign](https://i.imgur.com/9V6Y102.png)
 
 <br />
-<br />
 
 ### DogCatcher is currently in development
 
@@ -23,6 +22,7 @@ Discover a lot of dog and cat breeds that you didn't know existed, learn about t
 This web app is in active development by me, Darwin Lozada. DogCatcher is a very special project for me, because of my love for cats (yeah I am Team Cats), and the fact that it is inspired by my cute Cat called **Star**:star: Stay tuned for this!
 
 <br />
+
 ## Tech Stack
 
 I am using the next technologies for the development of this app:
