@@ -2,6 +2,7 @@ import { useState } from "react"
 import { ArrowIcon } from "../SvgIcons/SvgIcons"
 
 export default function Select({ label, values }) {
+  // Initial select state is the first value passed to the component
   const [selectState, setSelectState] = useState(values[0])
   const [isArrowDown, toggleArrowDirection] = useState(true)
 
@@ -33,15 +34,13 @@ export default function Select({ label, values }) {
           value={selectState}
         >
           {values.map((value) => (
-            <>
-              <option
-                value={value}
-                className="bg-primaryWhite"
-                key={`select ${value}`}
-              >
-                {value}
-              </option>
-            </>
+            <option
+              value={value}
+              className="bg-primaryWhite"
+              key={`select ${value} ${Math.random()}`}
+            >
+              {value}
+            </option>
           ))}
         </select>
         <div className="absolute h-full right-0 grid place-items-center bg-hardPink rounded-r-card min-w-min py-3 px-2 pointer-events-none">

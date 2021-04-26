@@ -5,13 +5,12 @@ import Header from "../Header/Header"
 import { ToastContainer } from "../../stores/ToastsStore"
 
 export default function PageLayout({ children }) {
-  console.log("hello")
-
   return (
     <div className="flex flex-col bg-lightBrown min-h-screen">
       <Header />
-      <ToastContainer />
-      <div className="mx-6 mt-12">{children}</div>
+      <ToastContainer>
+        <div className="mx-6 mt-12">{children}</div>
+      </ToastContainer>
     </div>
   )
 }

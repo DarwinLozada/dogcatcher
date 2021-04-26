@@ -9,11 +9,11 @@ import {
 // Toast Component
 import Toast from "../components/Toasts/index"
 
-const toastContext = createContext()
+const ToastContext = createContext()
 
 const TOAST_DURATION = 4000
 
-export const ToastContainer = () => {
+export const ToastContainer = ({ children }) => {
   const [toastsQueue, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "add":
@@ -28,7 +28,6 @@ export const ToastContainer = () => {
   }, [])
 
   useEffect(() => {
-    console.log(toastsQueue)
     if (toastsQueue.length) {
       const toastsQueueCopy = [...toastsQueue]
 
@@ -42,29 +41,34 @@ export const ToastContainer = () => {
     }
   }, [toastsQueue])
 
-  const toastValue = useMemo(() => [toastsQueue, dispatch], [
-    toastsQueue,
-    dispatch,
-  ])
+  const toastValue = useMemo(() => {
+    return {
+      toastsQueue,
+      dispatch,
+    }
+  }, [toastsQueue, dispatch])
 
-  console.log(toastValue)
   return (
-    <toastContext.Provider value={toastValue}>
-      {toastsQueue.map(({ message, type }) => (
-        <Toast key={`toast: ${toast.message}`} />
-      ))}
-    </toastContext.Provider>
+    <ToastContext.Provider value={toastValue}>
+      <div className="flex flex-col">
+        {toastsQueue.map(({ message, type }) => (
+          <Toast key={`toast: ${message} ${Math.random()}`} />
+        ))}
+      </div>
+      {children}
+    </ToastContext.Provider>
   )
 }
 
-export default function toast(type, message) {
-  const toastContxt = useContext(toastContext)
+export default function useToast() {
+  const toastContxt = useContext(ToastContext)
 
-  toastContxt.dispatch({
-    type: "add",
-    payload: {
-      type,
-      message,
-    },
-  })
+  return (type, message) =>
+    toastContxt.dispatch({
+      type: "add",
+      payload: {
+        type,
+        message,
+      },
+    })
 }
