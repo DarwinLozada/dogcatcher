@@ -1,6 +1,10 @@
+// Components
 import CatCard from "../PetsCards/CatCard"
 import DogCard from "../PetsCards/DogCard"
+
+// Dependencies
 import useFetchRandomPets from "../../hooks/useFetchRandomPets"
+import toast from "../../stores/ToastsStore"
 
 const isCat = (pet) => {
   return !!pet.origin
@@ -8,6 +12,9 @@ const isCat = (pet) => {
 
 export default function PetsList() {
   const { pets, petsError, petsAreLoading } = useFetchRandomPets()
+
+  // toast()
+  console.log("1")
 
   if (petsAreLoading)
     return (

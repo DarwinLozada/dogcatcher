@@ -13,7 +13,7 @@ const toastContext = createContext()
 
 const TOAST_DURATION = 4000
 
-export const ToastContainer = ({ children }) => {
+export const ToastContainer = () => {
   const [toastsQueue, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "add":
@@ -47,6 +47,7 @@ export const ToastContainer = ({ children }) => {
     dispatch,
   ])
 
+  console.log(toastValue)
   return (
     <toastContext.Provider value={toastValue}>
       {toastsQueue.map(({ message, type }) => (
