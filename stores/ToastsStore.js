@@ -4,6 +4,8 @@ import {
   useReducer,
   useMemo,
   useEffect,
+  useRef,
+  useCallback,
 } from "react"
 
 // Toast Component
@@ -17,7 +19,7 @@ export const ToastContainer = ({ children }) => {
   const [toastsQueue, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "add":
-        return [action.payload, ...state]
+        return [{ ...action.payload, id: Math.random() * 100 }, ...state]
 
       case "remove":
         return action.payload
@@ -27,32 +29,64 @@ export const ToastContainer = ({ children }) => {
     }
   }, [])
 
+  const updatedToastsQueue = useRef(toastsQueue)
+
   useEffect(() => {
     if (toastsQueue.length) {
-      const toastsQueueCopy = [...toastsQueue]
+      const lastToastId = toastsQueue[0].id
+      updatedToastsQueue.current = toastsQueue
 
-      setTimeout(() => {
-        toastsQueueCopy.shift()
+      const toastTimer = setTimeout(() => {
+        const filteredToastQueue = [...updatedToastsQueue.current].filter(
+          (toast) => toast.id !== lastToastId
+        )
+
+        console.log(filteredToastQueue)
+
         dispatch({
           type: "remove",
-          payload: toastsQueueCopy,
+          payload: filteredToastQueue,
         })
       }, TOAST_DURATION)
+
+      return () => {
+        clearInterval(toastTimer)
+      }
     }
   }, [toastsQueue])
 
-  const toastValue = useMemo(() => {
+  const toastContextValue = useMemo(() => {
     return {
       toastsQueue,
       dispatch,
     }
   }, [toastsQueue, dispatch])
 
+  const closeCertainToast = useCallback((id) => {
+    console.log(id)
+    const filteredToastQueue = [...updatedToastsQueue.current].filter(
+      (toast) => toast.id !== id
+    )
+
+    console.log(filteredToastQueue)
+
+    dispatch({
+      type: "remove",
+      payload: filteredToastQueue,
+    })
+  }, [])
+
   return (
-    <ToastContext.Provider value={toastValue}>
-      <div className="flex flex-col">
-        {toastsQueue.map(({ message, type }) => (
-          <Toast key={`toast: ${message} ${Math.random()}`} />
+    <ToastContext.Provider value={toastContextValue}>
+      <div className="absolute flex flex-col gap-4 ring-2">
+        {toastsQueue.map(({ message, type, id }) => (
+          <Toast
+            message={message}
+            type={type}
+            key={id}
+            id={id}
+            closeToast={closeCertainToast}
+          />
         ))}
       </div>
       {children}
