@@ -19,8 +19,6 @@ import {
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
 
 export default function DogCard({ petInfo }) {
-  console.log(petInfo)
-
   const {
     name,
     image,
@@ -102,7 +100,7 @@ export default function DogCard({ petInfo }) {
           </li>
         </ul>
         <div className="flex justify-end w-full mt-8 gap-4">
-          <AddToFavorites className="py-3" />
+          <AddToFavorites className="py-3" petInfo={petInfo} />
         </div>
       </section>
     </div>

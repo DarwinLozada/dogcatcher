@@ -8,15 +8,10 @@ export default function Discover() {
   return (
     <PageLayout>
       <div className="flex flex-col flex-grow">
-        <h1 className="text-[34px] font-medium">Discover new pets</h1>
-        <p className="text-sm mt-8 mb-8 leading-6">
-          Explore different pet breeds using our searcher, filter if you want
-          just cats or dogs
-          <span className="text-mediumPink"> (are you sure about that?)</span>
-        </p>
+        <h1 className="text-[34px] font-medium mb-8">Your Favorites</h1>
         <div className="flex w-full mb-12 items-center gap-4 justify-between">
           <Input
-            placeholder="Example: Seberian Husky"
+            placeholder="Example: Seberian Hujsky"
             label="Search by breed"
             typeOf="searchInput"
             classNamesToAdd="min-w-min"

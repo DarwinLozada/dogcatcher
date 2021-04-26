@@ -47,7 +47,7 @@ export const login = () =>
     .signInWithPopup(googleProvider)
     .then((user) => {
       if (user.additionalUserInfo.isNewUser) {
-        registerUserInDatabase(user)
+        registerUserInDatabase(user.user.uid)
       }
       mapUserFromFirebaseAuth(user)
     })

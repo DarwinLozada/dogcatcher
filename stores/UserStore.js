@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     (state, action) => {
       switch (action.type) {
         case "login":
-          return { ...state, user: action.payload }
+          return action.payload
 
         case "signOut":
           return { ...state, user: null }

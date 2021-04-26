@@ -88,7 +88,7 @@ export default function CatCard({ petInfo }) {
         </ul>
         <div className="flex justify-between w-full mt-8 gap-4">
           <MoreInfo />
-          <AddToFavorites />
+          <AddToFavorites petInfo={petInfo} />
         </div>
       </section>
     </div>
