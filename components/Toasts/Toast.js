@@ -6,7 +6,7 @@ export default function Toast({ title, message, type, closeToast, id }) {
       className="grid gap-2 bg-hardPink z-30 toast-shadow rounded-card px-5 py-4"
       style={{ gridTemplateColumns: "auto auto" }}
     >
-      <CheckedIcon className="w-4 mt-1" />
+      <CheckedIcon className="w-5 mt-[3px]" />
       <div className="flex flex-col gap-1">
         <h4 className="text-sm font-semibold text-white">{title}</h4>
         <button onClick={() => closeToast(id)}></button>

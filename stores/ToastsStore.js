@@ -90,7 +90,7 @@ export const ToastContainer = ({ children }) => {
   return (
     <>
       <div
-        className="fixed flex flex-col top-24 gap-4 bg-red-400 z-30"
+        className="fixed flex flex-col top-24 gap-4 bg-red-400 ml-4 z-30"
         style={{ position: "fixed", top: "8rem", right: "2rem" }}
       >
         <Toast

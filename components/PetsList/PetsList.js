@@ -11,7 +11,7 @@ const isCat = (pet) => {
 }
 
 export default function PetsList() {
-  const { pets, petsError, petsAreLoading } = useFetchRandomPets()
+  const { pets, petsAreLoading } = useFetchRandomPets()
 
   const toast = useToast()
 
@@ -35,7 +35,17 @@ export default function PetsList() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4 rounded-card min-h-full flex-grow">
-      <button onClick={() => toast("hola amigos de yt")}>Add toast</button>
+      <button
+        onClick={() =>
+          toast(
+            "succesful",
+            "Pet added succesfuly",
+            "Siberian Husky is now in your favorites"
+          )
+        }
+      >
+        Add toast
+      </button>
 
       {pets.map((pet) => {
         return isCat(pet) ? (
