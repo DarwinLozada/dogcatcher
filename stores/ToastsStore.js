@@ -1,19 +1,9 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  useMemo,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react"
+import { createContext, useContext, useReducer, useMemo } from "react"
 
 // Toast Component
 import Toast from "../components/Toasts/Toast"
 
 const ToastContext = createContext()
-
-const TOAST_DURATION = 4000
 
 export const ToastContainer = ({ children }) => {
   const [toastsQueue, dispatch] = useReducer((state, action) => {
@@ -29,57 +19,6 @@ export const ToastContainer = ({ children }) => {
     }
   }, [])
 
-  // Use useRef to have the last state of toastsQueue
-  const mostRecentToastsQueue = useRef(toastsQueue)
-  const timeoutsCollection = useRef([])
-
-  useEffect(() => {
-    if (toastsQueue.length > mostRecentToastsQueue.current.length) {
-      const lastToastId = toastsQueue[0].id
-
-      if (
-        !mostRecentToastsQueue.current.find((toast) => toast.id === lastToastId)
-      ) {
-        mostRecentToastsQueue.current = toastsQueue
-
-        const toastTimer = setTimeout(() => {
-          const filteredToastQueue = [...mostRecentToastsQueue.current].filter(
-            (toast) => toast.id !== lastToastId
-          )
-
-          mostRecentToastsQueue.current = filteredToastQueue
-
-          dispatch({
-            type: "remove",
-            payload: filteredToastQueue,
-          })
-        }, TOAST_DURATION)
-
-        console.log(toastTimer)
-
-        timeoutsCollection.current.push({ toastTimer, id: lastToastId })
-      }
-    }
-  }, [toastsQueue])
-
-  const closeToast = useCallback((id) => {
-    const filteredToastQueue = [...mostRecentToastsQueue.current].filter(
-      (toast) => toast.id !== id
-    )
-
-    const toastTimeout = timeoutsCollection.current.find(
-      (toast) => toast.id === id
-    )
-
-    clearInterval(toastTimeout.toastTimer)
-    mostRecentToastsQueue.current = filteredToastQueue
-
-    dispatch({
-      type: "remove",
-      payload: filteredToastQueue,
-    })
-  }, [])
-
   const toastContextValue = useMemo(() => {
     return {
       toastsQueue,
@@ -91,22 +30,10 @@ export const ToastContainer = ({ children }) => {
     <>
       <div
         className="fixed flex flex-col top-24 gap-4 bg-red-400 ml-4 z-30"
-        style={{ position: "fixed", top: "8rem", right: "2rem" }}
+        style={{ position: "fixed", top: "7rem", right: "2rem" }}
       >
-        <Toast
-          type="succesful"
-          title="Pet added succesfuly"
-          message="Siberian Husky is now in your favorites"
-        />
         {toastsQueue.map(({ message, type, id, title }) => (
-          <Toast
-            message={message}
-            title={title}
-            type={type}
-            key={id}
-            id={id}
-            closeToast={closeToast}
-          />
+          <Toast message={message} title={title} type={type} key={id} />
         ))}
       </div>
       <ToastContext.Provider value={toastContextValue}>
