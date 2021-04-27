@@ -58,17 +58,11 @@ export const ToastContainer = ({ children }) => {
         console.log(toastTimer)
 
         timeoutsCollection.current.push({ toastTimer, id: lastToastId })
-
-        // return () => {
-        //   clearInterval(toastTimer)
-        // }
       }
     }
   }, [toastsQueue])
 
-  // This function returns a function that closes the last toast generated
   const closeToast = useCallback((id) => {
-    // const lastToastId = mostRecentToastsQueue.current[0].id
     const filteredToastQueue = [...mostRecentToastsQueue.current].filter(
       (toast) => toast.id !== id
     )
@@ -77,9 +71,7 @@ export const ToastContainer = ({ children }) => {
       (toast) => toast.id === id
     )
 
-    console.log(toastTimeout)
     clearInterval(toastTimeout.toastTimer)
-
     mostRecentToastsQueue.current = filteredToastQueue
 
     dispatch({
