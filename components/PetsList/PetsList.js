@@ -18,6 +18,17 @@ export default function PetsList() {
   if (petsAreLoading)
     return (
       <div className="flex items-center bg-softBrown justify-center flex-grow">
+        <button
+          onClick={() =>
+            toast(
+              "sucessful",
+              "Pet added succesfuly",
+              "Siberian Husky is now in your favorites"
+            )
+          }
+        >
+          Add toast
+        </button>
         Cargando...
       </div>
     )

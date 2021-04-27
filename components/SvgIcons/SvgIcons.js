@@ -227,6 +227,24 @@ export const SearchIcon = ({ className }) => {
   )
 }
 
+export const CheckedIcon = ({ className }) => {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 14 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.81818 8.08585L2.02526 5.29293L1.95455 5.22221L1.88383 5.29293L0.929289 6.24747L0.858579 6.31818L0.929289 6.38889L4.74747 10.2071L4.81818 10.2778L4.88889 10.2071L13.0707 2.02526L13.1414 1.95455L13.0707 1.88383L12.1162 0.929289L12.0455 0.858579L11.9747 0.929289L4.81818 8.08585Z"
+        fill="white"
+        stroke="white"
+        strokeWidth="0.2"
+      />
+    </svg>
+  )
+}
+
 export const ArrowIcon = ({ className }) => {
   return (
     <svg
