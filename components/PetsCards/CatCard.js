@@ -28,6 +28,7 @@ export default function CatCard({ petInfo }) {
     life_span: lifeSpan,
     temperament,
     description,
+    wikipedia_url: wikipediaURL,
   } = petInfo
 
   const temperamentArray = temperament.split(", ")
@@ -41,7 +42,7 @@ export default function CatCard({ petInfo }) {
           <SadCat className="filter drop-shadow-sm" />
         </div>
       ) : (
-        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden">
+        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch">
           <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
             src={image.url}
@@ -53,7 +54,7 @@ export default function CatCard({ petInfo }) {
         </div>
       )}
 
-      <section className="relative pet-info-section px-5 pt-8 pb-6">
+      <section className="relative pet-info-section px-5 pt-8 pb-6 overflow-auto">
         <SideFaceCat className="absolute right-4 top-4 w-44 -z-10 opacity-40" />
         <h3 className="font-medium text-2xl mb-4">{name}</h3>
         <ul className="flex flex-col mt-6 gap-[14px]">
@@ -89,7 +90,11 @@ export default function CatCard({ petInfo }) {
           </li>
         </ul>
         <div className="flex justify-between w-full mt-8 gap-4">
-          <MoreInfo petName={name} petDescription={description} />
+          <MoreInfo
+            petName={name}
+            petDescription={description}
+            wikipediaURL={wikipediaURL}
+          />
           <AddToFavorites petInfo={petInfo} />
         </div>
       </section>

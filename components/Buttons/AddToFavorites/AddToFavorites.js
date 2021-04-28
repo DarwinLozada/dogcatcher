@@ -6,7 +6,7 @@ import { addPetToFavorites } from "../../../firebase-services/database"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 
-export default function AddToFavorites({ className, petInfo }) {
+export default function AddToFavorites({ petInfo }) {
   const [user] = useUser()
 
   const toast = useToast()
@@ -25,7 +25,7 @@ export default function AddToFavorites({ className, petInfo }) {
 
   return (
     <button
-      className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs text-white rounded-md font-bold bg-mediumPink outline-none focus:outline-none focus:ring-2 ring-white ${className}`}
+      className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs py-3 text-white rounded-md font-bold bg-mediumPink hover:bg-hardPink outline-none focus:outline-none focus:ring-2 ring-white`}
       onClick={handleClick}
     >
       Add to favorites
