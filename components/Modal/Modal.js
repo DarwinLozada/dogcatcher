@@ -1,10 +1,14 @@
 // Dependencies
 import ReactDOM from "react-dom"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { CSSTransition } from "react-transition-group"
 import useClickOutside from "../../hooks/useClickOutside"
 
+const MODAL_TRANSITION_DURATION = 500
+
 export default function Modal({ children, showModal, toggleModal }) {
+  if (typeof document === "undefined") return null
+
   const elementRef = useRef()
 
   useClickOutside(elementRef, () => {
@@ -15,9 +19,8 @@ export default function Modal({ children, showModal, toggleModal }) {
     <>
       <CSSTransition
         in={showModal}
-        timeout={500}
+        timeout={MODAL_TRANSITION_DURATION}
         classNames="modal"
-        appear
         unmountOnExit
       >
         <div className="justify-center flex items-center fixed w-screen h-screen z-10">
@@ -28,24 +31,22 @@ export default function Modal({ children, showModal, toggleModal }) {
         </div>
       </CSSTransition>
       <style jsx global>{`
-        .modal-appear {
+        .modal-enter {
           opacity: 0;
-          transform: translateY(-50%);
         }
 
-        .toast-appear-active {
+        .modal-enter-active {
           opacity: 1;
-          transform: translateY(0);
-          transition: all ${TOAST_TRANSITION_DURATION}ms;
+          transition: all ${MODAL_TRANSITION_DURATION}ms;
         }
 
-        .toast-exit {
+        .modal-exit {
           opacity: 1;
         }
 
-        .toast-exit-active {
+        .modal-exit-active {
           opacity: 0;
-          transition: all ${TOAST_TRANSITION_DURATION}ms;
+          transition: all ${MODAL_TRANSITION_DURATION}ms;
         }
       `}</style>
     </>,
