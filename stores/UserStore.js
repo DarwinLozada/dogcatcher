@@ -10,21 +10,18 @@ import { onAuthStateChanged } from "../firebase-services/user"
 const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
-  const [user, dispatch] = useReducer(
-    (state, action) => {
-      switch (action.type) {
-        case "login":
-          return action.payload
+  const [user, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case "login":
+        return action.payload
 
-        case "signOut":
-          return { ...state, user: null }
+      case "signOut":
+        return null
 
-        default:
-          throw new Error("invalid action type")
-      }
-    },
-    { user: undefined }
-  ) // User will be: userData, null or undefined
+      default:
+        throw new Error("invalid action type")
+    }
+  }, undefined) // User will be: userData, null or undefined
 
   useEffect(
     () =>

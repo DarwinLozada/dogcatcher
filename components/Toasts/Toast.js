@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 const TOAST_DURATION = 4000
 const TOAST_TRANSITION_DURATION = 500
 
-export default function Toast({ title, message, type }) {
+export default function Toast({ type, title, message }) {
   const [showToast, setShowToast] = useState(true)
 
   useEffect(() => setTimeout(() => setShowToast(false), TOAST_DURATION), [])
@@ -29,7 +29,6 @@ export default function Toast({ title, message, type }) {
           <CheckedIcon className="w-5 mt-[3px]" />
           <div className="flex flex-col gap-1">
             <h4 className="text-sm font-semibold text-white">{title}</h4>
-            <button onClick={() => closeToast(id)}></button>
             <p className="text-xs text-softPink font-semibold">{message}</p>
           </div>
           <CancelIcon
@@ -39,9 +38,6 @@ export default function Toast({ title, message, type }) {
         </div>
       </CSSTransition>
       <style jsx global>{`
-        .toast {
-        }
-
         .toast-appear {
           opacity: 0;
           transform: translateY(-50%);

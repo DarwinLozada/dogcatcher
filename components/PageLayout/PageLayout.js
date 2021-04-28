@@ -7,6 +7,7 @@ import { ToastContainer } from "../../stores/ToastsStore"
 export default function PageLayout({ children }) {
   return (
     <ToastContainer>
+      <div id="modal-container"></div>
       <div className="relative flex flex-col bg-lightBrown min-h-screen">
         <Header />
 

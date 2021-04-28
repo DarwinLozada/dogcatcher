@@ -3,10 +3,22 @@ import PageLayout from "../../components/PageLayout/PageLayout"
 import PetsList from "../../components/PetsList/PetsList"
 import Input from "../../components/Input/Input"
 import Select from "../../components/Select/Select"
+import Modal from "../../components/Modal/Modal"
+
+import { useState } from "react"
 
 export default function Discover() {
+  const [showModal, setShowModal] = useState(false)
+
+  console.log(showModal)
   return (
     <PageLayout>
+      <button onClick={() => setShowModal(true)}>Show Modal</button>
+      {showModal && (
+        <Modal showModal={showModal} toggleModal={setShowModal}>
+          <h1>Hola amigos de yt</h1>
+        </Modal>
+      )}
       <div className="flex flex-col flex-grow">
         <h1 className="text-[34px] font-medium">Discover new pets</h1>
         <p className="text-sm mt-8 mb-8 leading-6">
