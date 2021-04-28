@@ -11,7 +11,7 @@ export default function DescriptionCard({ petName, petDescription }) {
       <DescriptionIcon className="w-8 text-mediumPink" />
       <section className="flex flex-col gap-6">
         <h3 className="text-lg font-semibold text-hardPink">{`More info about ${petName}`}</h3>
-        <p className="text-[#A7224E] font-medium">{petDescription}</p>
+        <p className="text-redWine font-medium">{petDescription}</p>
       </section>
     </div>
   )

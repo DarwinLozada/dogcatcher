@@ -19,6 +19,7 @@ import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
 import MoreInfo from "../Buttons/MoreInfo/MoreInfo"
 
 export default function CatCard({ petInfo }) {
+  console.log(petInfo)
   const {
     name,
     image,

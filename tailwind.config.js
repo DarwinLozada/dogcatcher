@@ -9,6 +9,7 @@ module.exports = {
         primaryWhite: "#F9F3F3",
         softPink: "#F7D9D9",
         hardPink: "#EA2A69",
+        redWine: "#A7224E",
         mediumPink: "#F25287",
         softBrown: "#E5D8D8",
         lightBrown: "#EFE7E7",
