@@ -18,7 +18,7 @@ export default function MoreInfo({ petName, petDescription }) {
       </Modal>
       <button
         onClick={() => setShowDescription(true)}
-        className="flex gap-2 items-center text-xs pet-info-button text-hardPink px-2 py-[6px] rounded-md font-medium"
+        className="flex transition-all duration-300 gap-2 items-center text-xs pet-info-button text-hardPink px-2 py-[6px] rounded-md font-medium outline-none focus:outline-none focus:ring-2 ring-hardPink"
       >
         More info
         <InfoIcon className="w-5" />
