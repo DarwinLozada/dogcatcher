@@ -26,7 +26,7 @@ export default function Modal({ children, showModal, toggleModal }) {
         unmountOnExit
       >
         <div className="justify-center flex items-center fixed w-screen h-screen z-10">
-          <div ref={elementRef} className="ring-8 z-30">
+          <div ref={elementRef} className="z-30">
             {children}
           </div>
           <div className="absolute bg-black w-full h-full bg-opacity-80"></div>

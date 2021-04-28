@@ -245,6 +245,18 @@ export const CheckedIcon = ({ className }) => {
   )
 }
 
+export const DescriptionIcon = ({ className }) => {
+  return (
+    <svg
+      viewBox="0 0 24 30"
+      fill="none"
+      className={`fill-current ${className}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M6 21H18V24H6V21ZM6 15H18V18H6V15ZM15 0H3C1.35 0 0 1.35 0 3V27C0 28.65 1.335 30 2.985 30H21C22.65 30 24 28.65 24 27V9L15 0ZM21 27H3V3H13.5V10.5H21V27Z" />
+    </svg>
+  )
+}
 export const CancelIcon = ({ className, onClick }) => {
   return (
     <svg

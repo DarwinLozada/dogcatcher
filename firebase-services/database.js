@@ -9,7 +9,6 @@ export const registerUserInDatabase = (userUID) => {
 }
 
 export const addPetToFavorites = (pet, userUID) => {
-  console.log(userUID)
   return database
     .collection("users")
     .doc(userUID)
