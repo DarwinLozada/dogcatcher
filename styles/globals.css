@@ -33,6 +33,10 @@
   .toast-shadow {
     filter: drop-shadow(1px 1px 2px rgba(109, 108, 108, 0.4));
   }
+
+  .spinner-border {
+    border-left-color: #ea2a69;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
