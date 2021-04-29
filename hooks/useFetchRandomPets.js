@@ -1,5 +1,8 @@
+// Dependencies
 import useSWR from "swr"
 import { useCallback } from "react"
+import { returnShuffledArray } from "../utils/arrayFunctions"
+import { getRandomNumberWithMax } from "../utils/numberFunctions"
 
 const BREEDS_LIMIT_PER_PAGE = "10"
 
@@ -10,16 +13,6 @@ const DOGS_PAGE_LIMIT = "17"
 
 const dogsURL = `https://api.thedogapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
 const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
-
-const getRandomNumberWithMax = (max) => {
-  return Math.floor(Math.random() * max + max)
-}
-
-const returnShuffledArray = (arr) => {
-  // Use spread operator to not mutate the original array
-  const shuffled = [...arr].sort(() => 0.5 - Math.random())
-  return shuffled
-}
 
 export default function useFetchRandomPets() {
   const fetcher = useCallback(async () => {

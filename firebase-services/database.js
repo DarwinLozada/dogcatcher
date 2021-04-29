@@ -24,3 +24,9 @@ export const addPetToFavorites = (petName, petSpecies, userUID) => {
       [keyFieldToUpdate]: firebase.firestore.FieldValue.arrayUnion(petName),
     })
 }
+
+export const fetchFavoritePets = (userUID) => {
+  return database.collection("users").doc(userUID).get()
+}
+
+export default database

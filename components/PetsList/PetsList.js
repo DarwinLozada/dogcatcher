@@ -3,11 +3,11 @@ import CatCard from "../PetsCards/CatCard"
 import DogCard from "../PetsCards/DogCard"
 
 // Dependencies
-import useFetchRandomPets from "../../hooks/useFetchRandomPets"
+import usePets from "../../hooks/usePets"
 import { isDog } from "../../utils/petFunctions"
 
-export default function PetsList() {
-  const { pets, petsAreLoading } = useFetchRandomPets()
+export default function PetsList({ page }) {
+  const { pets, petsAreLoading } = usePets(page)
 
   if (petsAreLoading)
     return (

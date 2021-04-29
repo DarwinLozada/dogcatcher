@@ -23,7 +23,7 @@ export default function Discover() {
           />
           <Select values={["All", "Dogs", "Cats"]} label="Search by species" />
         </div>
-        <PetsList />
+        <PetsList page="discover" />
       </div>
     </PageLayout>
   )
