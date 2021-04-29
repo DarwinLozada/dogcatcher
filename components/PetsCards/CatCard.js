@@ -2,7 +2,7 @@
 import Image from "next/image"
 
 // Utility functions
-import { isObjectPresentOrEmpty } from "../../utils/objectsFunctions"
+import { isObjectPresentOrEmpty } from "../../utils/objectFunctions"
 
 // Icon Components
 import {
@@ -82,9 +82,10 @@ export default function CatCard({ petInfo }) {
           <li className="flex text-sm">
             <p className="font-bold text-hardPink">Temperament:</p>
             <ul className="list-disc gap-2 flex flex-col ml-8">
-              {temperamentArray.map((caracteristic) => (
-                <li key={`${name}, is ${caracteristic}`}>{caracteristic}</li>
-              ))}
+              {temperamentArray &&
+                temperamentArray.map((caracteristic) => (
+                  <li key={`${name}, is ${caracteristic}`}>{caracteristic}</li>
+                ))}
             </ul>
           </li>
         </ul>

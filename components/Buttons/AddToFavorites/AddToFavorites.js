@@ -6,7 +6,8 @@ import Spinner from "../../Spinner/Spinner"
 
 // Dependencies
 import { addPetToFavorites } from "../../../firebase-services/database"
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef } from "react"
+import { isDog } from "../../../utils/petFunctions"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 
@@ -16,9 +17,11 @@ export default function AddToFavorites({ petInfo }) {
 
   const toast = useToast()
 
+  const isThePetADog = useRef(isDog(petInfo) ? "dogs" : "cats")
+
   const handleClick = useCallback(() => {
     setIsButtonDisabled(true)
-    addPetToFavorites(petInfo, user.uid)
+    addPetToFavorites(petInfo.name, isThePetADog.current, user.uid)
       .then(() => {
         toast(
           "success",

@@ -3,18 +3,24 @@ import firebase from "firebase"
 const database = firebase.firestore()
 
 export const registerUserInDatabase = (userUID) => {
-  database.collection("users").doc(userUID).set({
-    favorites: [],
-  })
+  database
+    .collection("users")
+    .doc(userUID)
+    .set({
+      favorites: [],
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
-export const addPetToFavorites = (pet, userUID) => {
+export const addPetToFavorites = (petName, petSpecies, userUID) => {
+  const keyFieldToUpdate = `favorites.${petSpecies}`
+
   return database
     .collection("users")
     .doc(userUID)
     .update({
-      favorites: firebase.firestore.FieldValue.arrayUnion(pet),
+      [keyFieldToUpdate]: firebase.firestore.FieldValue.arrayUnion(petName),
     })
 }
-
-export default database

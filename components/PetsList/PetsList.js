@@ -4,10 +4,7 @@ import DogCard from "../PetsCards/DogCard"
 
 // Dependencies
 import useFetchRandomPets from "../../hooks/useFetchRandomPets"
-
-const isDog = (pet) => {
-  return !!pet.breed_group
-}
+import { isDog } from "../../utils/petFunctions"
 
 export default function PetsList() {
   const { pets, petsAreLoading } = useFetchRandomPets()

@@ -2,7 +2,7 @@
 import Image from "next/image"
 
 // Utility functions
-import { isObjectPresentOrEmpty } from "../../utils/objectsFunctions"
+import { isObjectPresentOrEmpty } from "../../utils/objectFunctions"
 
 // Icon Components
 import {
