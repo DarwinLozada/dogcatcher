@@ -22,6 +22,15 @@
     flex: 0 0 auto;
   }
 
+  .sign-up-modal {
+    background: linear-gradient(
+      140.12deg,
+      rgba(255, 184, 184, 0.2) 0.16%,
+      rgba(247, 217, 217, 0.7) 100%
+    );
+    backdrop-filter: blur(40px);
+  }
+
   .pet-card-gradient {
     background: linear-gradient(
       173.39deg,

@@ -29,7 +29,7 @@ export default function Modal({ children, showModal, toggleModal }) {
           <div ref={elementRef} className="z-30">
             {children}
           </div>
-          <div className="absolute bg-black w-full h-full bg-opacity-80"></div>
+          <div className="absolute px-6 filter blur-xl bg-gray-300 bg-opacity-70 w-full h-full"></div>
         </div>
       </CSSTransition>
       <style jsx global>{`
