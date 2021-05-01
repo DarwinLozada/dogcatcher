@@ -23,6 +23,10 @@ export default function AddToFavorites({ petInfo }) {
   const isThePetADog = useRef(isDog(petInfo) ? "dogs" : "cats")
 
   const handleClick = useCallback(() => {
+    if (user === null) {
+      setShowSignUpModal(true)
+      return
+    }
     setIsButtonDisabled(true)
     addPetToFavorites(petInfo, isThePetADog.current, user.uid)
       .then(() => {
@@ -35,7 +39,7 @@ export default function AddToFavorites({ petInfo }) {
         setIsButtonDisabled(false)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [user])
 
   return (
     <>
