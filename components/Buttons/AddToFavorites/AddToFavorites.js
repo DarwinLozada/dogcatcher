@@ -4,6 +4,7 @@ import { PlusIcon } from "../../SvgIcons/SvgIcons"
 // Components
 import Spinner from "../../Spinner/Spinner"
 import Modal from "../../Modal/Modal"
+import SignUpModal from "../../Modal/ModalComponents/SignUpModal"
 
 // Dependencies
 import { addPetToFavorites } from "../../../firebase-services/database"
@@ -38,10 +39,9 @@ export default function AddToFavorites({ petInfo }) {
 
   return (
     <>
-      <Modal
-        showModal={showSignUpModal}
-        toggleModal={setShowSignUpModal}
-      ></Modal>
+      <Modal showModal={showSignUpModal} toggleModal={setShowSignUpModal}>
+        <SignUpModal />
+      </Modal>
       <button
         className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs py-3 text-white rounded-md font-bold bg-mediumPink disabled:bg-lightBrown disabled:text-mediumPink disabled:cursor-wait hover:bg-hardPink outline-none focus:outline-none focus:ring-2 ring-white`}
         onClick={handleClick}
