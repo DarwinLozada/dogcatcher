@@ -9,7 +9,7 @@ export const registerUserInDatabase = (userUID) => {
     .collection("users")
     .doc(userUID)
     .set({
-      favorites: [],
+      favorites: {},
     })
     .catch((err) => {
       console.log(err)
