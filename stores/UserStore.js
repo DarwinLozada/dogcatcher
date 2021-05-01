@@ -29,7 +29,13 @@ export const UserProvider = ({ children }) => {
     []
   )
 
-  const userValue = useMemo(() => [user, dispatch], [user, dispatch])
+  const userValue = useMemo(
+    () => ({
+      user,
+      dispatch,
+    }),
+    [user, dispatch]
+  )
 
   return (
     <UserContext.Provider value={userValue}>{children}</UserContext.Provider>

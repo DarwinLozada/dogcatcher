@@ -7,7 +7,15 @@ import usePets from "../../hooks/usePets"
 import { isDog } from "../../utils/petFunctions"
 
 export default function PetsList({ page }) {
-  const { pets, petsAreLoading } = usePets(page)
+  const { pets, petsError, petsAreLoading } = usePets(page)
+
+  if (petsError) {
+    return (
+      <div className="flex items-center bg-softBrown justify-center flex-grow">
+        Error{" "}
+      </div>
+    )
+  }
 
   if (petsAreLoading)
     return (

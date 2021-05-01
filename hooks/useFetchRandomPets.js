@@ -39,7 +39,7 @@ export default function useFetchRandomPets() {
     }
   }, [])
 
-  const { data, error } = useSWR("petsData", fetcher)
+  const { data, error } = useSWR("random-pets", fetcher)
 
   return {
     pets: data,

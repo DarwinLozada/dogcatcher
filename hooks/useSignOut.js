@@ -5,7 +5,7 @@ import { signOut as firebaseSignOut } from "../firebase-services/user"
 export default function useLogin() {
   const [isLoading, setIsLoading] = useState(null)
   const [error, setError] = useState(null)
-  const [, dispatch] = useUser()
+  const { dispatch } = useUser()
 
   const signOut = useCallback(() => {
     setIsLoading(true)

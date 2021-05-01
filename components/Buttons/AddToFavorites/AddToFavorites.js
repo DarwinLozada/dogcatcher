@@ -12,7 +12,7 @@ import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 
 export default function AddToFavorites({ petInfo }) {
-  const [user] = useUser()
+  const { user } = useUser()
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
   const toast = useToast()
@@ -21,7 +21,7 @@ export default function AddToFavorites({ petInfo }) {
 
   const handleClick = useCallback(() => {
     setIsButtonDisabled(true)
-    addPetToFavorites(petInfo.name, isThePetADog.current, user.uid)
+    addPetToFavorites(petInfo, isThePetADog.current, user.uid)
       .then(() => {
         toast(
           "success",

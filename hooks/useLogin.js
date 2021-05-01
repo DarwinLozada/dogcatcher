@@ -5,7 +5,7 @@ import { login as firebaseLogin } from "../firebase-services/user"
 export default function useLogin() {
   const [isLoading, setIsLoading] = useState(false)
   const [loginError, setloginError] = useState(null)
-  const [, dispatch] = useUser()
+  const { dispatch } = useUser()
 
   const login = useCallback(() => {
     setloginError(null)

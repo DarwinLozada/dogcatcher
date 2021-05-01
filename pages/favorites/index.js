@@ -4,7 +4,7 @@ import PetsList from "../../components/PetsList/PetsList"
 import Input from "../../components/Input/Input"
 import Select from "../../components/Select/Select"
 
-export default function Discover() {
+export default function Favorites() {
   return (
     <PageLayout>
       <div className="flex flex-col flex-grow">
@@ -18,7 +18,7 @@ export default function Discover() {
           />
           <Select values={["All", "Dogs", "Cats"]} label="Search by species" />
         </div>
-        <PetsList />
+        <PetsList page="favorites" />
       </div>
     </PageLayout>
   )

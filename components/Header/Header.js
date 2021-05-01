@@ -6,7 +6,7 @@ import Image from "next/image"
 export default function Header() {
   const { isLoginLoading, loginError, login } = useLogin()
   const { isSignOutLoading, signOut } = useSignOut()
-  const [user] = useUser()
+  const { user } = useUser()
 
   return (
     <div className="flex items-center bg-primaryWhite min-h-[99px] max-h-[100px] w-screen py-12 px-6">
