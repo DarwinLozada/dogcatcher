@@ -27,7 +27,6 @@ export const onAuthStateChanged = (onChange) => {
       onChange(normalizedUser)
     })
   } catch (err) {
-    console.log("hola")
     throw new Error(err)
   }
 }
@@ -36,7 +35,6 @@ export const signOut = () =>
   firebase
     .auth()
     .signOut()
-    .then((res) => console.log(res))
     .catch((err) => {
       throw new Error(err)
     })
