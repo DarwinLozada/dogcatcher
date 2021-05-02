@@ -5,7 +5,6 @@ import firebase from "firebase"
 const database = firebase.firestore()
 
 export const registerUserInDatabase = (userInfo) => {
-  console.log(userInfo)
   database
     .collection("users")
     .doc(userInfo.uid)
@@ -23,14 +22,14 @@ export const registerPetInDatabase = (petInfo, petSpecies) => {
 }
 
 export const addPetToFavorites = (petInfo, petSpecies, userUID) => {
-  const keyFieldToUpdate = `favorites.${petSpecies}`
+  const petSpeciesFieldToUpdate = `favorites.${petSpecies}`
   registerPetInDatabase(petInfo, petSpecies)
 
   return database
     .collection("users")
     .doc(userUID)
     .update({
-      [keyFieldToUpdate]: firebase.firestore.FieldValue.arrayUnion(
+      [petSpeciesFieldToUpdate]: firebase.firestore.FieldValue.arrayUnion(
         petInfo.name
       ),
     })
