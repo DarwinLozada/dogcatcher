@@ -3,7 +3,6 @@ import { PlusIcon } from "../../SvgIcons/SvgIcons"
 
 // Components
 import Spinner from "../../Spinner/Spinner"
-import Modal from "../../Modal/Modal"
 import SignUpModal from "../../Modal/ModalComponents/SignUpModal"
 
 // Dependencies
@@ -15,9 +14,10 @@ import useToast from "../../../stores/ToastsStore"
 import useModal from "../../../stores/ModalsStore"
 
 export default function AddToFavorites({ petInfo }) {
-  const { user } = useUser()
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const { user } = useUser()
 
+  // Feedback components call using hooks
   const toast = useToast()
   const [setChildComponent, toggleModal] = useModal()
 
@@ -43,11 +43,11 @@ export default function AddToFavorites({ petInfo }) {
       .catch((err) => console.log(err))
   }, [user])
 
+  // If the user signed up, close the modal for sign up
+  if (user) toggleModal(false)
+
   return (
     <>
-      {/* <Modal showModal={showSignUpModal} toggleModal={setShowSignUpModal}>
-        <SignUpModal />
-      </Modal> */}
       <button
         className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs py-3 text-white rounded-md font-bold bg-mediumPink disabled:bg-lightBrown disabled:text-mediumPink disabled:cursor-wait hover:bg-hardPink outline-none focus:outline-none focus:ring-2 ring-white`}
         onClick={handleClick}

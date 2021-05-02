@@ -4,11 +4,13 @@ import firebase from "firebase"
 
 const database = firebase.firestore()
 
-export const registerUserInDatabase = (userUID) => {
+export const registerUserInDatabase = (userInfo) => {
+  console.log(userInfo)
   database
     .collection("users")
-    .doc(userUID)
+    .doc(userInfo.uid)
     .set({
+      userInfo: userInfo,
       favorites: {},
     })
     .catch((err) => {
