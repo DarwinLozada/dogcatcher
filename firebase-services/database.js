@@ -42,6 +42,9 @@ export const retrieveFavoritePetsData = (petList) => {
   const petSpeciesQueries = []
 
   for (const petSpecies in petList) {
+    // Slice the petList in arrays of length of 10
+    // because Firestore does not allow an "in" array query
+    // with lists that have more than 10 elements
     const petSpeciesSlicedArray = sliceArrayBySteps(petList[petSpecies], 10)
     for (let index = 0; index < petSpeciesSlicedArray.length; index++) {
       petSpeciesQueries.push(
