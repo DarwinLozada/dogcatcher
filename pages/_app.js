@@ -1,7 +1,9 @@
-import '../styles/globals.css'
-import { UserProvider } from '../stores/UserStore'
+import "../styles/globals.css"
 
-function MyApp ({ Component, pageProps }) {
+// Stores
+import { UserProvider } from "../stores/UserStore"
+
+function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <Component {...pageProps} />
