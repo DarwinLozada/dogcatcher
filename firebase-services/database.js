@@ -1,5 +1,8 @@
 // Dependencies
-import { mergeArraysInsideArray } from "../utils/arrayFunctions"
+import {
+  mergeArraysInsideArray,
+  sliceArrayBySteps,
+} from "../utils/arrayFunctions"
 import firebase from "firebase"
 
 const database = firebase.firestore()
@@ -39,12 +42,15 @@ export const retrieveFavoritePetsData = (petList) => {
   const petSpeciesQueries = []
 
   for (const petSpecies in petList) {
-    petSpeciesQueries.push(
-      database
-        .collection(petSpecies)
-        .where("name", "in", petList[petSpecies])
-        .get()
-    )
+    const petSpeciesSlicedArray = sliceArrayBySteps(petList[petSpecies], 10)
+    for (let index = 0; index < petSpeciesSlicedArray.length; index++) {
+      petSpeciesQueries.push(
+        database
+          .collection(petSpecies)
+          .where("name", "in", petSpeciesSlicedArray[index])
+          .get()
+      )
+    }
   }
 
   return Promise.all(petSpeciesQueries)
@@ -54,11 +60,15 @@ export const mapPetDataFromDatabase = (petsQueryList) => {
   const mergedPetsQueryList = mergeArraysInsideArray(petsQueryList)
   const allPetsInfoList = []
 
-  mergedPetsQueryList.forEach((petSpeciesList) =>
-    petSpeciesList.forEach((petData) => {
-      allPetsInfoList.push(petData.data())
+  try {
+    mergedPetsQueryList.forEach((petSpeciesList) => {
+      petSpeciesList.forEach((petData) => {
+        allPetsInfoList.push(petData.data())
+      })
     })
-  )
+  } catch (err) {
+    console.log(err)
+  }
 
   return allPetsInfoList
 }

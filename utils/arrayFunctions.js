@@ -7,3 +7,12 @@ export const returnShuffledArray = (arr) => {
 export const mergeArraysInsideArray = (arr) => {
   return [].concat(...arr)
 }
+
+export const sliceArrayBySteps = (arr, step) => {
+  let index = 0
+  const slicedArr = []
+  while (index < arr.length) {
+    slicedArr.push(arr.slice(index, (index += step)))
+  }
+  return slicedArr
+}
