@@ -7,7 +7,7 @@ import SignUpModal from "../../Modal/ModalComponents/SignUpModal"
 
 // Dependencies
 import { addPetToFavorites } from "../../../firebase-services/database"
-import { useState, useCallback, useRef } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import { isDog } from "../../../utils/petFunctions"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
@@ -44,7 +44,10 @@ export default function AddToFavorites({ petInfo }) {
   }, [user])
 
   // If the user signed up, close the modal for sign up
-  if (user) toggleModal(false)
+
+  useEffect(() => {
+    if (user) toggleModal(false)
+  }, [user])
 
   return (
     <>
