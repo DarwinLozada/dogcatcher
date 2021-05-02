@@ -11,14 +11,12 @@ export const ModalContainer = ({ children }) => {
   const [componentToDisplay, setComponentToDisplay] = useState(null)
 
   return (
-    <>
-      <ModalContext.Provider value={{ setComponentToDisplay, toggleModal }}>
-        {children}
-        <Modal showModal={showModal} toggleModal={toggleModal}>
-          {componentToDisplay}
-        </Modal>
-      </ModalContext.Provider>
-    </>
+    <ModalContext.Provider value={{ setComponentToDisplay, toggleModal }}>
+      {children}
+      <Modal showModal={showModal} toggleModal={toggleModal}>
+        {componentToDisplay}
+      </Modal>
+    </ModalContext.Provider>
   )
 }
 
