@@ -17,7 +17,6 @@ export default function AddToFavorites({ petInfo }) {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
   const { user } = useUser()
 
-  // Feedback components call using hooks
   const toast = useToast()
   const [setChildComponent, toggleModal] = useModal()
 

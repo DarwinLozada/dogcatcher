@@ -164,6 +164,23 @@ export const PawDrawing = ({ className }) => {
     </svg>
   )
 }
+export const DeleteIcon = ({ className }) => {
+  return (
+    <svg
+      viewBox="0 0 10 10"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.3999 8.40004L1.3999 1.39999M8.3999 1.39999L1.3999 8.40004"
+        stroke="#EA2A69"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
 
 export const SadDog = ({ className }) => {
   return (

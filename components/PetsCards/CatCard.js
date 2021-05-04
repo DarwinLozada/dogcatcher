@@ -16,9 +16,10 @@ import {
 
 // Components
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
+import EliminateFromFavorites from "../Buttons/EliminateFromFavorites/EliminateFromFavorites"
 import MoreInfo from "../Buttons/MoreInfo/MoreInfo"
 
-export default function CatCard({ petInfo }) {
+export default function CatCard({ petInfo, page }) {
   const {
     name,
     image,
@@ -96,7 +97,11 @@ export default function CatCard({ petInfo }) {
             petDescription={description}
             wikipediaURL={wikipediaURL}
           />
-          <AddToFavorites petInfo={petInfo} />
+          {page === "discover" ? (
+            <AddToFavorites petInfo={petInfo} />
+          ) : (
+            <EliminateFromFavorites petName={name} petSpecies="cats" />
+          )}
         </div>
       </section>
     </div>

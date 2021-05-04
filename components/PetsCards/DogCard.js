@@ -17,8 +17,9 @@ import {
 
 // Components
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
+import EliminateFromFavorites from "../Buttons/EliminateFromFavorites/EliminateFromFavorites"
 
-export default function DogCard({ petInfo }) {
+export default function DogCard({ petInfo, page }) {
   const {
     name,
     image,
@@ -28,6 +29,7 @@ export default function DogCard({ petInfo }) {
     life_span: lifeSpan,
     temperament,
   } = petInfo
+
 
   let temperamentArray
 
@@ -100,7 +102,11 @@ export default function DogCard({ petInfo }) {
           </li>
         </ul>
         <div className="flex justify-end w-full mt-8 gap-4">
-          <AddToFavorites petInfo={petInfo} />
+          {page === "discover" ? (
+            <AddToFavorites petInfo={petInfo} />
+          ) : (
+            <EliminateFromFavorites petName={name} petSpecies="dogs" />
+          )}
         </div>
       </section>
     </div>
