@@ -25,7 +25,12 @@ export default function useModal() {
 
   return [
     (ComponentRef, componentProps) => {
-      const element = <ComponentRef {...componentProps} />
+      const element = (
+        <ComponentRef
+          {...componentProps}
+          toggleModal={modalContext.toggleModal}
+        />
+      )
       modalContext.setElementToDisplay(element)
     },
     (modalValue) => {
