@@ -18,13 +18,13 @@ export default function AddToFavorites({ petInfo }) {
   const { user } = useUser()
 
   const toast = useToast()
-  const [setChildComponent, toggleModal] = useModal()
+  const [setModalComponent, toggleModal] = useModal()
 
   const isThePetADog = useRef(isDog(petInfo) ? "dogs" : "cats")
 
   const handleClick = useCallback(() => {
     if (user === null) {
-      setChildComponent(SignUpModal)
+      setModalComponent(SignUpModal, { hola: "chao" })
       toggleModal(true)
       return
     }

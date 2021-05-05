@@ -1,12 +1,9 @@
 // Icon Components
-
 import { DescriptionIcon, WikipediaIcon } from "../SvgIcons/SvgIcons"
 
-export default function DescriptionCard({
-  petName,
-  petDescription,
-  wikipediaURL,
-}) {
+export default function DescriptionCard(props) {
+  const { petName, petDescription, wikipediaURL } = props
+
   return (
     <div
       className="grid gap-6 bg-softPink mx-8 px-6 py-8 rounded-card"
