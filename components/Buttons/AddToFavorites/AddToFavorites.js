@@ -24,7 +24,7 @@ export default function AddToFavorites({ petInfo }) {
 
   const handleClick = useCallback(() => {
     if (user === null) {
-      setModalComponent(SignUpModal, { hola: "chao" })
+      setModalComponent(SignUpModal)
       toggleModal(true)
       return
     }

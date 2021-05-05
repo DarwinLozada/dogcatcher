@@ -3,28 +3,18 @@ import { deletePetFromFavorites } from "../../../firebase-services/database"
 import { useState } from "react"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
-
+import useModal from "../../../stores/ModalsStore"
+import EliminationConfirmationModal from "../../Modal/ModalComponents/EliminationConfirmationModal"
 // Icon components
 import { DeleteIcon } from "../../SvgIcons/SvgIcons"
+import EliminateConfirmationModal from "../../Modal/ModalComponents/EliminationConfirmationModal"
 
 export default function EliminateFromFavorites({ petName, petSpecies }) {
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false)
-  const { user } = useUser()
-  const toast = useToast()
-
+    const [setModalComponent, toggleModal] = useModal()
   const handleClick = () => {
-    setIsButtonDisabled(true)
-    deletePetFromFavorites(petSpecies, petName, user.uid)
-      .then(() => {
-        toast(
-          "success",
-          "Pet eliminated succesfully",
-          `${petName} was removed from your favorites... Poor pet`
-        )
-      })
-      .catch((err) => console.log(err))
+    setModalComponent(EliminateConfirmationModal, { petName, petSpecies })
+    toggleModal(true)
   }
-
   return (
     <button onClick={handleClick} className={`w-8 `}>
       hola
