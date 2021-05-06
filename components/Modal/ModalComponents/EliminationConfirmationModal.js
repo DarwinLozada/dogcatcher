@@ -11,7 +11,6 @@ export default function EliminateConfirmationModal({
   petName,
   toggleModal,
 }) {
-  console.log(toggleModal)
   const { user } = useUser()
   const toast = useToast()
 
@@ -35,12 +34,12 @@ export default function EliminateConfirmationModal({
         favorites?
       </h3>
       <div className="flex flex-col gap-8 mx-2">
-        <button className="flex justify-center px-4 py-3 gap-3 whitespace-nowrap bg-hardPink text-white font-normal items-center rounded-card">
+        <button className="flex justify-center px-4 py-3 gap-3 bg-hardPink text-white font-normal items-center rounded-card">
           remove {petName}
           {petSpecies === "cats" ? (
-            <SadCat className="w-12" />
+            <SadCat className="w-11" />
           ) : (
-            <SadDog className="w-12" />
+            <SadDog className="w-14" />
           )}
         </button>
         <button className="flex items-center gap-5 px-4 py-3 justify-center bg-primaryWhite font-medium text-hardPink rounded-card">
@@ -48,7 +47,7 @@ export default function EliminateConfirmationModal({
           {petSpecies === "cats" ? (
             <HappyCat className="w-12" />
           ) : (
-            <HappyDog className="w-12" />
+            <HappyDog className="w-11" />
           )}
         </button>
       </div>

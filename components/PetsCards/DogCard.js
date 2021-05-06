@@ -30,7 +30,6 @@ export default function DogCard({ petInfo, page }) {
     temperament,
   } = petInfo
 
-
   let temperamentArray
 
   // Some dog data does not have the temperament info
@@ -42,7 +41,7 @@ export default function DogCard({ petInfo, page }) {
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-10">
           {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
-          <SadDog />
+          <SadDog className="w-24" />
         </div>
       ) : (
         <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden">

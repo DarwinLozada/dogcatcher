@@ -40,7 +40,7 @@ export default function CatCard({ petInfo, page }) {
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-[2]">
           {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
-          <SadCat className="filter drop-shadow-sm" />
+          <SadCat className="filter drop-shadow-sm w-24" />
         </div>
       ) : (
         <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch">
