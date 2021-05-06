@@ -1,6 +1,7 @@
 // Dependencies
+import { useState } from "react"
 import { deletePetFromFavorites } from "../../../firebase-services/database"
-import { mutate, mutation } from "swr"
+import { mutate } from "swr"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 
@@ -12,10 +13,12 @@ export default function EliminateConfirmationModal({
   petName,
   toggleModal,
 }) {
+  const [isRemoveLoading, setIsRemoveLoading] = useState(false)
   const { user } = useUser()
   const toast = useToast()
 
   const handleClick = () => {
+    setIsRemoveLoading(true)
     deletePetFromFavorites(petSpecies, petName, user.uid)
       .then(() => {
         toast(
@@ -23,6 +26,7 @@ export default function EliminateConfirmationModal({
           "Pet removed succesfully",
           `${petName} was removed from your favorites... Poor pet`
         )
+        setIsRemoveLoading(false)
         toggleModal(false)
         mutate("favorite-pets")
       })
@@ -39,18 +43,23 @@ export default function EliminateConfirmationModal({
       <div className="flex flex-col gap-8 mx-2">
         <button
           onClick={handleClick}
-          className="flex justify-center px-4 py-3 gap-3 bg-hardPink text-white font-normal items-center rounded-card"
+          disabled={isRemoveLoading}
+          className="flex transition-all duration-300 justify-center px-4 py-3 gap-3 bg-hardPink hover:bg-mediumPink text-white font-normal items-center rounded-card outline-none focus:outline-none focus:ring-2 ring-white"
         >
           remove {petName}
           {petSpecies === "cats" ? (
-            <SadCat className="w-11" />
+            <SadCat
+              className={`w-11 ${isRemoveLoading && "animate animate-spin"}`}
+            />
           ) : (
-            <SadDog className="w-14" />
+            <SadDog
+              className={`w-16 ${isRemoveLoading && "animate animate-spin"}`}
+            />
           )}
         </button>
         <button
           onClick={() => toggleModal(false)}
-          className="flex items-center gap-5 px-4 py-3 justify-center bg-primaryWhite font-medium text-hardPink rounded-card"
+          className="flex transition-all duration-300 items-center gap-5 px-4 py-3 justify-center bg-primaryWhite hover:bg-white font-medium text-hardPink rounded-card outline-none focus:outline-none focus:ring-2 ring-hardPink"
         >
           {"don't do it"}
           {petSpecies === "cats" ? (
