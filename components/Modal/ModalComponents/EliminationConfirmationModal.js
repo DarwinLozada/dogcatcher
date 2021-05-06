@@ -1,5 +1,6 @@
 // Dependencies
 import { deletePetFromFavorites } from "../../../firebase-services/database"
+import { mutate, mutation } from "swr"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 
@@ -19,9 +20,11 @@ export default function EliminateConfirmationModal({
       .then(() => {
         toast(
           "success",
-          "Pet eliminated succesfully",
+          "Pet removed succesfully",
           `${petName} was removed from your favorites... Poor pet`
         )
+        toggleModal(false)
+        mutate("favorite-pets")
       })
       .catch((err) => console.log(err))
   }
@@ -34,7 +37,10 @@ export default function EliminateConfirmationModal({
         favorites?
       </h3>
       <div className="flex flex-col gap-8 mx-2">
-        <button className="flex justify-center px-4 py-3 gap-3 bg-hardPink text-white font-normal items-center rounded-card">
+        <button
+          onClick={handleClick}
+          className="flex justify-center px-4 py-3 gap-3 bg-hardPink text-white font-normal items-center rounded-card"
+        >
           remove {petName}
           {petSpecies === "cats" ? (
             <SadCat className="w-11" />
@@ -42,7 +48,10 @@ export default function EliminateConfirmationModal({
             <SadDog className="w-14" />
           )}
         </button>
-        <button className="flex items-center gap-5 px-4 py-3 justify-center bg-primaryWhite font-medium text-hardPink rounded-card">
+        <button
+          onClick={() => toggleModal(false)}
+          className="flex items-center gap-5 px-4 py-3 justify-center bg-primaryWhite font-medium text-hardPink rounded-card"
+        >
           {"don't do it"}
           {petSpecies === "cats" ? (
             <HappyCat className="w-12" />

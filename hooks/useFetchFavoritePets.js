@@ -18,7 +18,10 @@ export default function useFetchFavoritePets() {
       .catch((err) => console.log(err))
   }, [user])
 
-  const { data, error } = useSWR(() => user.uid + "-favorite-pets", fetcher)
+  const { data, error } = useSWR(
+    () => (user.uid ? "favorite-pets" : null),
+    fetcher
+  )
 
   return {
     pets: data,
