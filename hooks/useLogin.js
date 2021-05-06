@@ -3,21 +3,21 @@ import useUser from "../stores/UserStore"
 import { login as firebaseLogin } from "../firebase-services/user"
 
 export default function useLogin() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoginLoading, setIsLoginLoading] = useState(false)
   const [loginError, setloginError] = useState(null)
   const { dispatch } = useUser()
 
   const login = useCallback(() => {
     setloginError(null)
-    setIsLoading(true)
+    setIsLoginLoading(true)
     firebaseLogin()
       .then((user) => {
         dispatch({ type: "login", payload: user })
-        setIsLoading(false)
+        setIsLoginLoading(false)
         setloginError(null)
       })
       .catch((err) => setloginError(err))
   })
 
-  return { isLoginLoading: isLoading, loginError, login }
+  return { isLoginLoading, loginError, login }
 }
