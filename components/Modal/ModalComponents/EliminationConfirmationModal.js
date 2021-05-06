@@ -44,7 +44,7 @@ export default function EliminateConfirmationModal({
         <button
           onClick={handleClick}
           disabled={isRemoveLoading}
-          className="flex transition-all duration-300 justify-center px-4 py-3 gap-3 bg-hardPink hover:bg-mediumPink text-white font-normal items-center rounded-card outline-none focus:outline-none focus:ring-2 ring-white"
+          className="flex transition-all duration-300 justify-center px-4 py-3 gap-3 bg-hardPink hover:bg-mediumPink text-white font-normal items-center rounded-card outline-none focus:outline-none focus:ring-2 ring-primaryWhite"
         >
           remove {petName}
           {petSpecies === "cats" ? (

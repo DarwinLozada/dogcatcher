@@ -1,24 +1,23 @@
 // Dependencies
-import { deletePetFromFavorites } from "../../../firebase-services/database"
-import { useState } from "react"
-import useUser from "../../../stores/UserStore"
-import useToast from "../../../stores/ToastsStore"
 import useModal from "../../../stores/ModalsStore"
-import EliminationConfirmationModal from "../../Modal/ModalComponents/EliminationConfirmationModal"
+
 // Icon components
 import { DeleteIcon } from "../../SvgIcons/SvgIcons"
 import EliminateConfirmationModal from "../../Modal/ModalComponents/EliminationConfirmationModal"
 
 export default function EliminateFromFavorites({ petName, petSpecies }) {
-    const [setModalComponent, toggleModal] = useModal()
+  const [setModalComponent, toggleModal] = useModal()
   const handleClick = () => {
     setModalComponent(EliminateConfirmationModal, { petName, petSpecies })
     toggleModal(true)
   }
+
   return (
-    <button onClick={handleClick} className={`w-8 `}>
-      hola
-      <DeleteIcon className="w-16 h-16" />
+    <button
+      onClick={handleClick}
+      className={`grid transition-all duration-300 w-8 h-8 place-items-center rounded-full bg-primaryWhite hover:bg-lightBrown outline-none focus:outline-none focus:ring-2 ring-hardPink`}
+    >
+      <DeleteIcon className="w-3" />
     </button>
   )
 }
