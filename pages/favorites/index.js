@@ -16,7 +16,7 @@ export default function Favorites() {
             typeOf="searchInput"
             classNamesToAdd="min-w-min"
           />
-          <Select values={["All", "Dogs", "Cats"]} label="Search by species" />
+          <Select values={["All", "Dogs", "Cats"]} label="Filter by species" />
         </div>
         <PetsList page="favorites" />
       </div>

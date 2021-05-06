@@ -21,7 +21,7 @@ export default function Discover() {
             typeOf="searchInput"
             classNamesToAdd="min-w-min"
           />
-          <Select values={["All", "Dogs", "Cats"]} label="Search by species" />
+          <Select values={["All", "Dogs", "Cats"]} label="Filter by species" />
         </div>
         <PetsList page="discover" />
       </div>
