@@ -1,3 +1,4 @@
+// Dependencies
 import {
   createContext,
   useContext,
@@ -5,23 +6,13 @@ import {
   useMemo,
   useEffect,
 } from "react"
+import { userReducer } from "../reducers/userReducer"
 import { onAuthStateChanged } from "../firebase-services/user"
 
 const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
-  const [user, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case "login":
-        return action.payload
-
-      case "signOut":
-        return null
-
-      default:
-        throw new Error("invalid action type")
-    }
-  }, undefined) // User will be: userData, null or undefined
+  const [user, dispatch] = useReducer(userReducer, undefined) // User will be: userData, null or undefined
 
   useEffect(
     () =>

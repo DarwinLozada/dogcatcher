@@ -1,5 +1,6 @@
 // Dependencies
 import { createContext, useContext, useReducer, useMemo } from "react"
+import { toastReducer } from "../reducers/toastReducer"
 
 // Toast Component
 import Toast from "../components/Toasts/Toast"
@@ -7,18 +8,7 @@ import Toast from "../components/Toasts/Toast"
 const ToastContext = createContext()
 
 export const ToastContainer = ({ children }) => {
-  const [toastsQueue, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case "add":
-        return [{ ...action.payload, id: Math.random() * 100 }, ...state]
-
-      case "remove":
-        return action.payload
-
-      default:
-        throw new Error("invalid action type")
-    }
-  }, [])
+  const [toastsQueue, dispatch] = useReducer(toastReducer, [])
 
   const toastContextValue = useMemo(() => {
     return {
