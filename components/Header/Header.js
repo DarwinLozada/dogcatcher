@@ -4,8 +4,8 @@ import useUser from "../../stores/UserStore"
 import Image from "next/image"
 
 export default function Header() {
-  const { isLoginLoading, loginError, login } = useLogin()
-  const { isSignOutLoading, signOut } = useSignOut()
+  const { isLoginLoading, login } = useLogin()
+  const { signOut } = useSignOut()
   const { user } = useUser()
 
   return (
