@@ -25,7 +25,7 @@ export default function PetsList({ page }) {
     )
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4 rounded-card min-h-full flex-grow">
+    <ul className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown px-4 rounded-card min-h-full flex-grow">
       {pets.map((pet) => {
         return isDog(pet) ? (
           <DogCard petInfo={pet} key={pet.name} page={page} />
@@ -33,6 +33,6 @@ export default function PetsList({ page }) {
           <CatCard petInfo={pet} key={pet.name} page={page} />
         )
       })}
-    </div>
+    </ul>
   )
 }

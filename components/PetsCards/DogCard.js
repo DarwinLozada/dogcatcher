@@ -36,7 +36,7 @@ export default function DogCard({ petInfo, page }) {
   if (temperament) temperamentArray = temperament.split(", ")
 
   return (
-    <div className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
+    <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-10">
           {" "}
@@ -108,6 +108,6 @@ export default function DogCard({ petInfo, page }) {
           )}
         </div>
       </section>
-    </div>
+    </li>
   )
 }
