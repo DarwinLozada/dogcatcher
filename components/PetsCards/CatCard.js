@@ -67,7 +67,7 @@ export default function CatCard({ petInfo, page }) {
             </p>
           </li>
           <li className="flex items-center">
-            <OriginIcon className="w-5" />
+            <OriginIcon className="w-6" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Origin:{" "}
               <span className="ml-2 text-black font-normal">{`${origin}`}</span>{" "}
@@ -75,7 +75,7 @@ export default function CatCard({ petInfo, page }) {
           </li>
 
           <li className="flex items-center">
-            <HeartIcon className="w-5 text-primaryWhite stroke-current" />
+            <HeartIcon className="w-6 text-primaryWhite stroke-current stroke-2" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
               <span className="ml-2 text-black font-normal">{`${lifeSpan} years`}</span>

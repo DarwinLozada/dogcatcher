@@ -68,14 +68,14 @@ export default function DogCard({ petInfo, page }) {
             </p>
           </li>
           <li className="flex items-center">
-            <HeightIcon className="w-4 ml-1" />
+            <HeightIcon className="w-[15px] ml-1" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Height:{" "}
               <span className="ml-2 text-black font-normal">{`${height.metric}cm`}</span>
             </p>
           </li>
           <li className="flex items-center">
-            <BredIcon className="w-6" />
+            <BredIcon className="w-7" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Bred for:{" "}
               <span className="ml-2 text-black font-normal">{`${bredFor}`}</span>
@@ -83,7 +83,7 @@ export default function DogCard({ petInfo, page }) {
           </li>
 
           <li className="flex items-center">
-            <HeartIcon className="w-6 text-primaryWhite stroke-current" />
+            <HeartIcon className="w-6 text-primaryWhite stroke-current stroke-2" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
               <span className="ml-2 text-black font-normal">{`${lifeSpan}`}</span>
