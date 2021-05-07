@@ -75,7 +75,7 @@ export default function CatCard({ petInfo, page }) {
           </li>
 
           <li className="flex items-center">
-            <HeartIcon className="w-5" />
+            <HeartIcon className="w-5 text-primaryWhite stroke-current" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
               <span className="ml-2 text-black font-normal">{`${lifeSpan} years`}</span>

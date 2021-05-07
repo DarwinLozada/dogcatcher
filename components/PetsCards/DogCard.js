@@ -83,7 +83,7 @@ export default function DogCard({ petInfo, page }) {
           </li>
 
           <li className="flex items-center">
-            <HeartIcon className="w-6" />
+            <HeartIcon className="w-6 text-primaryWhite stroke-current" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
               <span className="ml-2 text-black font-normal">{`${lifeSpan}`}</span>
