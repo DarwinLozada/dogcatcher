@@ -1,3 +1,3 @@
 export const isDog = (pet) => {
-  return !!pet.breed_group
+  return !!pet.bred_for || !!pet.bred_group
 }
