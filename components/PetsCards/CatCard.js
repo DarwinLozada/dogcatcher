@@ -34,7 +34,6 @@ export default function CatCard({ petInfo, page }) {
   // Sometimes the API does not return the temperament of the cat
   const temperamentArray = temperament ? temperament.split(", ") : null
 
-  console.log(petInfo)
   return (
     <div className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
