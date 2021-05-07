@@ -86,7 +86,7 @@ export default function DogCard({ petInfo, page }) {
             <HeartIcon className="w-6" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
-              <span className="ml-2 text-black font-normal">{`${lifeSpan} years`}</span>
+              <span className="ml-2 text-black font-normal">{`${lifeSpan}`}</span>
             </p>
           </li>
           <li className="flex text-sm">
