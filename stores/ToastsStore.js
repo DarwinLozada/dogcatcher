@@ -30,8 +30,8 @@ export const ToastContainer = ({ children }) => {
   return (
     <>
       <div
-        className="fixed flex flex-col top-24 gap-4 bg-red-400 ml-4 z-30"
-        style={{ position: "fixed", top: "7rem", right: "2rem" }}
+        className="fixed flex flex-col gap-4 bg-red-400 ml-4 z-30"
+        style={{ position: "fixed", top: "4rem", right: "2rem" }}
       >
         {toastsQueue.map(({ message, type, id, title }) => (
           <Toast message={message} title={title} type={type} key={id} />

@@ -9,7 +9,7 @@ export default function MobileNav() {
 
   return (
     <div className="flex px-8 py-4 gap-20 items-center justify-center fixed bottom-0 right-0 z-100 w-full bg-primaryWhite">
-      <HomeIcon className="w-8" />
+      <HomeIcon className="w-7" />
       {user ? (
         <img
           src={user.avatar}
@@ -17,9 +17,9 @@ export default function MobileNav() {
           className="rounded-full w-10"
         ></img>
       ) : (
-        <ProfileIcon className="w-8" />
+        <ProfileIcon className="w-7" />
       )}
-      <SettingsIcon className="w-9" />
+      <SettingsIcon className="w-8" />
     </div>
   )
 }
