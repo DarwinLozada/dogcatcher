@@ -611,7 +611,7 @@ export const HeartIcon = ({ className }) => {
     <svg
       viewBox="0 0 16 17"
       className={className}
-      fill="none"
+      fill="transparent"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
