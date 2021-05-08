@@ -1,6 +1,6 @@
 // Dependencies
 import { CSSTransition } from "react-transition-group"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import useClickOutside from "../../../hooks/useClickOutside"
 import useModal from "../../../stores/ModalsStore"
 
@@ -13,8 +13,6 @@ import SettingsModal from "../../Modal/ModalComponents/SettingsModal/SettingsMod
 const TRANSITION_DURATION = 400
 
 export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
-  const [isSettingsMenuOpened, toggleSettingsMenu] = useState(false)
-
   const menuRef = useRef()
   useClickOutside(menuRef, () => toggleUserMenu(false))
   const [setModalComponent, toggleModal] = useModal()
