@@ -3,19 +3,19 @@ import useUser from "../stores/UserStore"
 import { signOut as firebaseSignOut } from "../firebase-services/user"
 
 export default function useLogin() {
-  const [isLoading, setIsLoading] = useState(null)
-  const [error, setError] = useState(null)
+  const [isSignOutLoading, setIsSignOutLoading] = useState(null)
+  const [signOutError, setSignOutError] = useState(null)
   const { dispatch } = useUser()
 
   const signOut = useCallback(() => {
-    setIsLoading(true)
+    setIsSignOutLoading(true)
     firebaseSignOut()
       .then(() => {
         dispatch({ type: "signOut" })
-        setIsLoading(false)
+        setIsSignOutLoading(false)
       })
-      .catch((err) => setError(err))
+      .catch((err) => setSignOutError(err))
   })
 
-  return { isLoading, error, signOut }
+  return { isSignOutLoading, signOutError, signOut }
 }
