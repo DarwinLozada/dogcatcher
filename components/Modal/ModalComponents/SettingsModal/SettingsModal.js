@@ -1,8 +1,8 @@
 // Icon components
-import { GithubIcon } from "../../SvgIcons"
+import { GithubIcon } from "../../../SvgIcons/SvgIcons"
 
 // Components
-import SignOutButton from "../../Buttons/SignOutButton/SignOutButton"
+import SignOutButton from "../../../Buttons/SignOutButton/SignOutButton"
 
 export default function SettingsModal() {
   return (

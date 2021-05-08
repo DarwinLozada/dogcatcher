@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 // Components
-import UserAvatarMenu from "../Menus/UserAvatarMenu"
+import UserAvatarMenu from "../Menus/UserAvatarMenu/UserAvatarMenu"
 
 export default function UserAvatar({ avatarURL, username }) {
   const [isUserMenuToggled, toggleUserMenu] = useState(false)

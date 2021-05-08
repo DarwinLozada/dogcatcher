@@ -1,12 +1,12 @@
 // Dependencies
 import { useState } from "react"
-import { deletePetFromFavorites } from "../../../firebase-services/database"
+import { deletePetFromFavorites } from "../../../../firebase-services/database"
 import { mutate } from "swr"
-import useUser from "../../../stores/UserStore"
-import useToast from "../../../stores/ToastsStore"
+import useUser from "../../../../stores/UserStore"
+import useToast from "../../../../stores/ToastsStore"
 
 // Icon Components
-import { SadCat, SadDog, HappyCat, HappyDog } from "../../SvgIcons/SvgIcons"
+import { SadCat, SadDog, HappyCat, HappyDog } from "../../../SvgIcons/SvgIcons"
 
 export default function EliminateConfirmationModal({
   petSpecies,

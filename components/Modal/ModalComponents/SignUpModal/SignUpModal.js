@@ -1,9 +1,9 @@
 // Icon Components
-import { PawDrawing } from "../../SvgIcons/SvgIcons"
+import { PawDrawing } from "../../../SvgIcons/SvgIcons"
 
 // Components
-import GoogleButton from "../../Buttons/SignUpButtons/GoogleButton"
-import TwitterButton from "../../Buttons/SignUpButtons/TwitterButton"
+import GoogleButton from "../../../Buttons/SignUpButtons/GoogleButton"
+import TwitterButton from "../../../Buttons/SignUpButtons/TwitterButton"
 
 export default function SignUpModal() {
   return (

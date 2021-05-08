@@ -16,7 +16,7 @@ import {
 
 // Components
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
-import EliminateFromFavorites from "../Buttons/EliminateFromFavorites/EliminateFromFavorites"
+import RemoveFromFavorites from "../Buttons/RemoveFromFavorites/RemoveFromFavorites"
 import MoreInfo from "../Buttons/MoreInfo/MoreInfo"
 
 export default function CatCard({ petInfo, page }) {
@@ -100,7 +100,7 @@ export default function CatCard({ petInfo, page }) {
           {page === "discover" ? (
             <AddToFavorites petInfo={petInfo} />
           ) : (
-            <EliminateFromFavorites petName={name} petSpecies="cats" />
+            <RemoveFromFavorites petName={name} petSpecies="cats" />
           )}
         </div>
       </section>

@@ -3,7 +3,7 @@ import { PlusIcon } from "../../SvgIcons/SvgIcons"
 
 // Components
 import Spinner from "../../Spinner/Spinner"
-import SignUpModal from "../../Modal/ModalComponents/SignUpModal"
+import SignUpModal from "../../Modal/ModalComponents/SignUpModal/SignUpModal"
 
 // Dependencies
 import { addPetToFavorites } from "../../../firebase-services/database"

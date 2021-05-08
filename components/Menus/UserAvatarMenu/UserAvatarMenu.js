@@ -1,16 +1,29 @@
 // Dependencies
 import { CSSTransition } from "react-transition-group"
-import { useRef } from "react"
-import useClickOutside from "../../hooks/useClickOutside"
+import { useRef, useState } from "react"
+import useClickOutside from "../../../hooks/useClickOutside"
+import useModal from "../../../stores/ModalsStore"
 
 // Icon Components
-import { SettingsIcon, ProfileIcon, InfoIcon } from "../SvgIcons/SvgIcons"
+import { SettingsIcon, ProfileIcon, InfoIcon } from "../../SvgIcons/SvgIcons"
+
+// Components
+import SettingsModal from "../../Modal/ModalComponents/SettingsModal/SettingsModal"
 
 const TRANSITION_DURATION = 400
 
 export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
+  const [isSettingsMenuOpened, toggleSettingsMenu] = useState(false)
+
   const menuRef = useRef()
   useClickOutside(menuRef, () => toggleUserMenu(false))
+  const [setModalComponent, toggleModal] = useModal()
+
+  const handleSettingsButtonClick = () => {
+    setModalComponent(SettingsModal)
+    toggleModal(true)
+  }
+
   return (
     <>
       <CSSTransition
@@ -24,17 +37,26 @@ export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
           ref={menuRef}
           className="flex flex-col bg-primaryWhite absolute z-[4] -top-44 -left-14 rounded-card px-4 py-6 gap-4 "
         >
-          <li className="flex gap-8 justify-between">
-            <p>Settings</p>
-            <SettingsIcon className="w-6" />
+          <li>
+            <button
+              onClick={handleSettingsButtonClick}
+              className="flex gap-8 justify-between"
+            >
+              <p>Settings</p>
+              <SettingsIcon className="w-6" />
+            </button>
           </li>
-          <li className="flex gap-6 justify-between">
-            <p>Profile</p>
-            <ProfileIcon className="w-6" />
+          <li>
+            <button className="flex gap-8 justify-between">
+              <p>Profile</p>
+              <ProfileIcon className="w-6" />
+            </button>
           </li>
-          <li className="flex gap-6 justify-between">
-            <p>About</p>
-            <InfoIcon className="w-6" />
+          <li>
+            <button className="flex gap-6 justify-between">
+              <p>About</p>
+              <InfoIcon className="w-6" />
+            </button>
           </li>
         </ul>
       </CSSTransition>
