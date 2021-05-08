@@ -7,7 +7,6 @@ import { SettingsIcon, ProfileIcon, InfoIcon } from "../SvgIcons/SvgIcons"
 const TRANSITION_DURATION = 400
 
 export default function UserAvatarMenu({ showMenu }) {
-  console.log(showMenu)
   return (
     <>
       <CSSTransition
@@ -17,7 +16,7 @@ export default function UserAvatarMenu({ showMenu }) {
         mountOnEnter
         unmountOnExit
       >
-        <ul className="flex flex-col bg-primaryWhite absolute z-[3] -top-44 rounded-card px-4 py-6 gap-4 ">
+        <ul className="flex flex-col bg-primaryWhite absolute z-[4] -top-44 -left-14 rounded-card px-4 py-6 gap-4 ">
           <li className="flex gap-8 justify-between">
             <p>Settings</p>
             <SettingsIcon className="w-6" />
@@ -36,11 +35,13 @@ export default function UserAvatarMenu({ showMenu }) {
         {`
           .menu-enter {
             opacity: 0;
+            transform: translateY(100%);
           }
 
           .menu-enter-active {
             opacity: 1;
             transition: all ${TRANSITION_DURATION}ms;
+            transform: translateY(0);
           }
 
           .menu-exit {

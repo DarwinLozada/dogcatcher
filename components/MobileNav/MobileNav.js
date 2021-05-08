@@ -12,7 +12,7 @@ export default function MobileNav() {
   const { user } = useUser()
 
   return (
-    <div className="flex px-8 py-3 gap-20 items-center justify-center fixed bottom-0 right-0 z-100 w-full bg-primaryWhite">
+    <div className="flex px-8 py-3 gap-20 items-center justify-center fixed bottom-0 right-0 z-[5] w-full bg-primaryWhite">
       <DiscoverPetsIcon className="w-8" />
       {user === undefined && <Spinner width={"8"} />}
       {user === null && <ProfileIcon className="w-8" />}
