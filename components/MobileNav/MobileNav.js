@@ -3,13 +3,7 @@ import Spinner from "../Spinner/Spinner"
 import UserAvatar from "../UserAvatar/UserAvatar"
 
 // Icon Components
-import {
-  HomeIcon,
-  DiscoverPetsIcon,
-  ProfileIcon,
-  SettingsIcon,
-  HeartIcon,
-} from "../SvgIcons/SvgIcons"
+import { DiscoverPetsIcon, ProfileIcon, HeartIcon } from "../SvgIcons/SvgIcons"
 
 // Dependencies
 import useUser from "../../stores/UserStore"
