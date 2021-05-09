@@ -38,20 +38,20 @@ export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
           <li>
             <button
               onClick={handleSettingsButtonClick}
-              className="flex gap-8 justify-between"
+              className="flex gap-8 justify-between w-full"
             >
               <p>Settings</p>
               <SettingsIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex gap-8 justify-between">
+            <button className="flex gap-8 justify-between w-full">
               <p>Profile</p>
               <ProfileIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex gap-6 justify-between">
+            <button className="flex gap-6 justify-between w-full">
               <p>About</p>
               <InfoIcon className="w-6" />
             </button>

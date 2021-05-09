@@ -3,7 +3,7 @@ import { useCallback } from "react"
 export default function Switch({ valueToToggle, toggleValue }) {
   const handleToggle = useCallback(() => {
     toggleValue(!valueToToggle)
-  }, [])
+  }, [valueToToggle])
 
   return (
     <button
