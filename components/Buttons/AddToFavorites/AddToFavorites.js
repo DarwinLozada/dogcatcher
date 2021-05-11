@@ -50,7 +50,7 @@ export default function AddToFavorites({ petInfo }) {
   return (
     <>
       <button
-        className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs py-3 text-white rounded-md font-bold bg-mediumPink dark:bg-hardPink dark:hover: disabled:bg-lightBrown disabled:text-mediumPink disabled:cursor-wait hover:bg-hardPink outline-none focus:outline-none focus:ring-2 ring-white`}
+        className={`flex transition-all duration-300 items-center gap-2 px-2 text-xs py-3 text-white rounded-md font-bold bg-mediumPink dark:bg-hardPink dark:hover:bg-mediumPink disabled:bg-lightBrown disabled:text-mediumPink dark:disabled:bg-primaryGray disabled:cursor-wait hover:bg-hardPink outline-none focus:outline-none focus:ring-2 ring-white`}
         onClick={handleClick}
         disabled={isAddingLoading}
       >

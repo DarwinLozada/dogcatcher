@@ -37,7 +37,7 @@ export default function CatCard({ petInfo, page }) {
   return (
     <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient dark:pet-card-dark-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
-        <div className="flex flex-col items-center justify-center gap-4 my-16 z-[2]">
+        <div className="flex flex-col items-center justify-center gap-4 my-16 z-[2] dark:bg-darkBg">
           {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
           <SadCat className="filter drop-shadow-sm w-24 z-[3]" />

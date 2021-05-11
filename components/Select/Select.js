@@ -36,7 +36,7 @@ export default function Select({ label, values }) {
           {values.map((value) => (
             <option
               value={value}
-              className="bg-primaryWhite"
+              className="bg-primaryWhite dark:bg-primaryBlack"
               key={`select ${value} ${Math.random()}`}
             >
               {value}
