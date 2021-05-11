@@ -15,9 +15,5 @@ export const ThemeProvider = ({ children }) => {
 }
 
 export default function useDarkMode() {
-  try {
-    return useContext(ThemeContext)
-  } catch (error) {
-    throw new Error("You have to call this hook inside of the Theme Provider")
-  }
+  return useContext(ThemeContext)
 }

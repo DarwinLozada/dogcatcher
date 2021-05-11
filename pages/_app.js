@@ -2,12 +2,15 @@ import "../styles/globals.css"
 
 // Stores
 import { UserProvider } from "../stores/UserStore"
+import { ThemeProvider } from "../stores/ThemeStore"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
-      <Component {...pageProps} />
-    </UserProvider>
+    <ThemeProvider>
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
+    </ThemeProvider>
   )
 }
 
