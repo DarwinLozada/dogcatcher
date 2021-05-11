@@ -23,7 +23,7 @@ export default function MoreInfo({ petName, petDescription, wikipediaURL }) {
     <>
       <button
         onClick={handleClick}
-        className="flex transition-all duration-300 gap-2 items-center text-xs bg-primaryWhite dark:bg-primaryGray dark:text-primaryBlack hover:bg-lightBrown text-hardPink px-2 py-[6px] rounded-md font-medium outline-none focus:outline-none focus:ring-2 ring-hardPink"
+        className="flex transition-all duration-300 gap-2 items-center text-xs bg-primaryWhite dark:bg-primaryGray dark:text-primaryBlack dark:hover:bg-lightBrown hover:bg-lightBrown text-hardPink px-2 py-[6px] rounded-md font-medium outline-none focus:outline-none focus:ring-2 ring-hardPink"
       >
         More info
         <InfoIcon className="w-5 text-mediumPink dark:text-primaryBlack dark:hover:bg-primaryWhite fill-current" />

@@ -43,7 +43,7 @@ export default function CatCard({ petInfo, page }) {
           <SadCat className="filter drop-shadow-sm w-24 z-[3]" />
         </div>
       ) : (
-        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch">
+        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch dark:bg-darkBg">
           <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
             src={image.url}
