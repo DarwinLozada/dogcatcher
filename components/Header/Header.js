@@ -26,7 +26,7 @@ export default function Header() {
           layout="intrinsic"
         />
       </div>
-      <div className="">
+      <div className="invisible">
         {isLoginLoading && <p>Wait</p>}
         {user && (
           <>
