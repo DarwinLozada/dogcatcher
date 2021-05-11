@@ -16,7 +16,7 @@ export default function Select({ label, values }) {
     <div className="flex flex-col gap-2">
       <label
         htmlFor={`${label} select`}
-        className="text-xs min-w-min whitespace-nowrap"
+        className="text-xs min-w-min whitespace-nowrap dark:text-primaryWhite"
       >
         {label}
       </label>
@@ -27,7 +27,7 @@ export default function Select({ label, values }) {
       >
         <select
           id={`${label} select`}
-          className="appearance-none min-w-min rounded-card px-4 pr-6 bg-primaryWhite flex h-12 outline-none w-full"
+          className="appearance-none min-w-min rounded-card px-4 pr-6 bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite flex h-12 outline-none w-full"
           onChange={handleChange}
           onFocus={() => toggleArrowDirection(false)}
           onBlur={() => toggleArrowDirection(true)}
