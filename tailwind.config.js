@@ -13,6 +13,8 @@ module.exports = {
         mediumPink: "#F25287",
         softBrown: "#E5D8D8",
         lightBrown: "#EFE7E7",
+        primaryBlack: "#111010",
+        darkBg: "#242222",
       },
 
       animation: {

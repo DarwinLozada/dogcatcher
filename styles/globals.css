@@ -18,6 +18,15 @@
     backdrop-filter: blur(400px);
   }
 
+  .pet-dark-info-section {
+    background: linear-gradient(
+      140.12deg,
+      rgba(35, 33, 34, 0.7) 3.44%,
+      rgba(17, 16, 16, 0.9) 100%
+    );
+    backdrop-filter: blur(40px);
+  }
+
   .pet-card-image {
     flex: 0 0 auto;
   }
@@ -37,6 +46,10 @@
       #ffffff -0.06%,
       rgba(255, 219, 219, 0.76) 64.84%
     );
+  }
+
+  .pet-card-dark-gradient {
+    background: linear-gradient(173.39deg, #111010 30%, #111010 70%);
   }
 
   .toast-shadow {

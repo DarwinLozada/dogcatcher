@@ -1,5 +1,6 @@
 // Dependencies
 import Image from "next/image"
+import useDarkMode from "../../stores/ThemeStore"
 
 // Utility functions
 import { isObjectPresentOrEmpty } from "../../utils/objectFunctions"
@@ -32,11 +33,15 @@ export default function DogCard({ petInfo, page }) {
 
   let temperamentArray
 
+  const [isDarkMode] = useDarkMode()
+
+  console.log(isDarkMode)
+
   // Some dog data does not have the temperament info
   if (temperament) temperamentArray = temperament.split(", ")
 
   return (
-    <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
+    <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient dark:pet-card-dark-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-10">
           {" "}
@@ -56,9 +61,11 @@ export default function DogCard({ petInfo, page }) {
         </div>
       )}
 
-      <section className="pet-info-section px-5 pt-8 pb-6">
+      <section className="pet-info-section dark:pet-dark-info-section px-5 pt-8 pb-6">
         <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-40" />
-        <h3 className="font-medium text-2xl mb-4">{name}</h3>
+        <h3 className="font-medium text-2xl mb-4 dark:text-primaryWhite">
+          {name}
+        </h3>
         <ul className="flex flex-col mt-6 gap-[14px]">
           <li className="flex items-center">
             <WeightIcon className="w-6" />
