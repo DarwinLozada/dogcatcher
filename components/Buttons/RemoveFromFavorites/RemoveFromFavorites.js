@@ -15,7 +15,7 @@ export default function RemoveFromFavorites({ petName, petSpecies }) {
   return (
     <button
       onClick={handleClick}
-      className={`grid transition-all duration-300 w-8 h-8 place-items-center rounded-full bg-primaryWhite hover:bg-lightBrown outline-none focus:outline-none focus:ring-2 ring-hardPink`}
+      className={`grid transition-all duration-300 w-8 h-8 place-items-center rounded-full bg-primaryWhite dark:bg-primaryGray hover:bg-lightBrown outline-none focus:outline-none focus:ring-2 ring-hardPink`}
     >
       <DeleteIcon className="w-3" />
     </button>
