@@ -15,7 +15,7 @@ export default function PageLayout({ children }) {
       <ToastContainer>
         <div id="modal-container"></div>
         <ModalContainer>
-          <div className="relative flex flex-col bg-lightBrown min-h-screen pb-24">
+          <div className="relative flex flex-col bg-lightBrown dark:bg-darkBg min-h-screen pb-24">
             <Header />
             <div className="mx-6 mt-12">{children}</div>
             <MobileNav />

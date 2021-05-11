@@ -35,7 +35,7 @@ export default function CatCard({ petInfo, page }) {
   const temperamentArray = temperament ? temperament.split(", ") : null
 
   return (
-    <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient w-full shadow-sm">
+    <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient dark:pet-card-dark-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
         <div className="flex flex-col items-center justify-center gap-4 my-16 z-[2]">
           {" "}
@@ -55,22 +55,24 @@ export default function CatCard({ petInfo, page }) {
         </div>
       )}
 
-      <section className="relative pet-info-section px-5 pt-8 pb-6 overflow-auto">
-        <SideFaceCat className="absolute right-4 top-4 w-44 -z-10 opacity-40" />
-        <h3 className="font-medium text-2xl mb-4">{name}</h3>
+      <section className="relative pet-info-section dark:pet-dark-info-section px-5 pt-8 pb-6 overflow-auto">
+        <SideFaceCat className="absolute right-4 top-4 w-44 -z-10 opacity-40 dark:opacity-[0.15]" />
+        <h3 className="font-medium text-2xl mb-4 dark:text-primaryWhite">
+          {name}
+        </h3>
         <ul className="flex flex-col mt-6 gap-[14px]">
           <li className="flex items-center">
             <WeightIcon className="w-6" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Weight:{" "}
-              <span className="ml-2 text-black font-normal">{`${weight.metric}kg`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite  font-normal">{`${weight.metric}kg`}</span>
             </p>
           </li>
           <li className="flex items-center">
             <OriginIcon className="w-6" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Origin:{" "}
-              <span className="ml-2 text-black font-normal">{`${origin}`}</span>{" "}
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${origin}`}</span>{" "}
             </p>
           </li>
 
@@ -78,7 +80,7 @@ export default function CatCard({ petInfo, page }) {
             <HeartIcon className="w-6 text-primaryWhite stroke-current stroke-2" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
-              <span className="ml-2 text-black font-normal">{`${lifeSpan} years`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${lifeSpan} years`}</span>
             </p>
           </li>
           <li className="flex text-sm">
@@ -86,7 +88,12 @@ export default function CatCard({ petInfo, page }) {
             <ul className="list-disc gap-2 flex flex-col ml-8">
               {temperamentArray &&
                 temperamentArray.map((caracteristic) => (
-                  <li key={`${name}, is ${caracteristic}`}>{caracteristic}</li>
+                  <li
+                    className="dark:text-primaryWhite"
+                    key={`${name}, is ${caracteristic}`}
+                  >
+                    {caracteristic}
+                  </li>
                 ))}
             </ul>
           </li>

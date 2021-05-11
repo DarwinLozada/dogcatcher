@@ -62,7 +62,7 @@ export default function DogCard({ petInfo, page }) {
       )}
 
       <section className="pet-info-section dark:pet-dark-info-section px-5 pt-8 pb-6">
-        <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-40" />
+        <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-40 dark:opacity-[0.15]" />
         <h3 className="font-medium text-2xl mb-4 dark:text-primaryWhite">
           {name}
         </h3>
@@ -71,21 +71,21 @@ export default function DogCard({ petInfo, page }) {
             <WeightIcon className="w-6" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Weight:{" "}
-              <span className="ml-2 text-black font-normal">{`${weight.metric}kg`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${weight.metric}kg`}</span>
             </p>
           </li>
           <li className="flex items-center">
             <HeightIcon className="w-[15px] ml-1" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Height:{" "}
-              <span className="ml-2 text-black font-normal">{`${height.metric}cm`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${height.metric}cm`}</span>
             </p>
           </li>
           <li className="flex items-center">
             <BredIcon className="w-7" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Bred for:{" "}
-              <span className="ml-2 text-black font-normal">{`${bredFor}`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${bredFor}`}</span>
             </p>
           </li>
 
@@ -93,7 +93,7 @@ export default function DogCard({ petInfo, page }) {
             <HeartIcon className="w-6 text-primaryWhite stroke-current stroke-2" />
             <p className="font-bold text-hardPink ml-3 text-sm">
               Life span:{" "}
-              <span className="ml-2 text-black font-normal">{`${lifeSpan}`}</span>
+              <span className="ml-2 text-black dark:text-primaryWhite font-normal">{`${lifeSpan}`}</span>
             </p>
           </li>
           <li className="flex text-sm">
@@ -101,7 +101,12 @@ export default function DogCard({ petInfo, page }) {
             {temperament && (
               <ul className="list-disc gap-2 flex flex-col ml-8">
                 {temperamentArray.map((caracteristic) => (
-                  <li key={`${name}, is ${caracteristic}`}>{caracteristic}</li>
+                  <li
+                    className="dark:text-primaryWhite"
+                    key={`${name}, is ${caracteristic}`}
+                  >
+                    {caracteristic}
+                  </li>
                 ))}
               </ul>
             )}
