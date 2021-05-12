@@ -33,26 +33,26 @@ export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
       >
         <ul
           ref={menuRef}
-          className="flex flex-col bg-primaryWhite absolute z-[4] -top-44 -left-14 rounded-card px-4 py-6 gap-4"
+          className="flex flex-col bg-primaryWhite dark:bg-primaryBlack absolute z-[4] -top-44 -left-14 rounded-card px-4 py-6 gap-4"
         >
           <li>
             <button
               onClick={handleSettingsButtonClick}
               className="flex gap-8 justify-between w-full"
             >
-              <p>Settings</p>
+              <p className="dark:text-primaryWhite">Settings</p>
               <SettingsIcon className="w-6" />
             </button>
           </li>
           <li>
             <button className="flex gap-8 justify-between w-full">
-              <p>Profile</p>
+              <p className="dark:text-primaryWhite">Profile</p>
               <ProfileIcon className="w-6" />
             </button>
           </li>
           <li>
             <button className="flex gap-6 justify-between w-full">
-              <p>About</p>
+              <p className="dark:text-primaryWhite">About</p>
               <InfoIcon className="w-6 text-mediumPink dark:text-hardPink fill-current" />
             </button>
           </li>

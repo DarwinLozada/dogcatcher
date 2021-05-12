@@ -1,6 +1,5 @@
 // Dependencies
 import Image from "next/image"
-import useDarkMode from "../../stores/ThemeStore"
 
 // Utility functions
 import { isObjectPresentOrEmpty } from "../../utils/objectFunctions"
@@ -32,10 +31,6 @@ export default function DogCard({ petInfo, page }) {
   } = petInfo
 
   let temperamentArray
-
-  const [isDarkMode] = useDarkMode()
-
-  console.log(isDarkMode)
 
   // Some dog data does not have the temperament info
   if (temperament) temperamentArray = temperament.split(", ")

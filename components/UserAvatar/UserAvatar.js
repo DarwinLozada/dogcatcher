@@ -7,7 +7,6 @@ import UserAvatarMenu from "../Menus/UserAvatarMenu/UserAvatarMenu"
 export default function UserAvatar({ avatarURL, username }) {
   const [isUserMenuToggled, toggleUserMenu] = useState(false)
 
-  console.log(isUserMenuToggled)
   return (
     <div className="relative">
       <UserAvatarMenu

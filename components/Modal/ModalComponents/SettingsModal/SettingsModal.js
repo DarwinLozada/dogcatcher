@@ -11,6 +11,8 @@ import useDarkMode from "../../../../stores/ThemeStore"
 export default function SettingsModal() {
   const [isDarkMode, toggleDarkMode] = useDarkMode()
 
+  console.log(isDarkMode)
+
   return (
     <div className="rounded-card bg-primaryWhite py-4 px-2 dark:bg-hardPink">
       <div>
