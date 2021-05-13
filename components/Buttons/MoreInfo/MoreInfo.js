@@ -2,7 +2,7 @@
 import { InfoIcon } from "../../SvgIcons/SvgIcons"
 
 // Components
-import DescriptionCard from "../../DescriptionCard/DescriptionCard"
+import PetDescriptionModal from "../../Modal/ModalComponents/PetDescriptionModal/PetDescriptionModal"
 
 // Dependencies
 import useModal from "../../../stores/ModalsStore"
@@ -11,7 +11,7 @@ export default function MoreInfo({ petName, petDescription, wikipediaURL }) {
   const [setModalComponent, toggleModal] = useModal()
 
   const handleClick = () => {
-    setModalComponent(DescriptionCard, {
+    setModalComponent(PetDescriptionModal, {
       petName,
       petDescription,
       wikipediaURL,
