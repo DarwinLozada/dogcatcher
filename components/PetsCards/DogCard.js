@@ -38,13 +38,13 @@ export default function DogCard({ petInfo, page }) {
   return (
     <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient dark:pet-card-dark-gradient w-full shadow-sm">
       {isObjectPresentOrEmpty(image) ? (
-        <div className="flex flex-col items-center justify-center gap-4 py-16 z-10 dark:bg-darkBg">
+        <div className="flex flex-col items-center justify-center gap-4 py-16 z-[2] dark:bg-darkBg">
           {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
           <SadDog className="w-24" />
         </div>
       ) : (
-        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden">
+        <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden dark:bg-darkBg">
           <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
             src={image.url}
