@@ -1,14 +1,14 @@
 // Dependencies
-import useSignOut from "../../../hooks/useSignOut"
-import useToast from "../../../stores/ToastsStore"
+import useLogin from "../../../../hooks/useLogin"
+import useToast from "../../../../stores/ToastsStore"
 
-export default function SignOutButton() {
-  const { isSignOutLoading, signOutError, signOut } = useSignOut()
+export default function SignInButton() {
+  const { isLoginLoading, loginError, login } = useLogin()
 
   const toast = useToast()
 
   const handleClick = () => {
-    signOut()
+    login()
     toast(
       "succesful",
       "You have signed out succesfuly",
@@ -18,11 +18,11 @@ export default function SignOutButton() {
 
   return (
     <button
-      disabled={isSignOutLoading}
+      disabled={isLoginLoading}
       onClick={handleClick}
       className="transition-all duration-300 text-primaryWhite rounded-md text-sm bg-mediumPink px-5 py-2 dark:bg-hardPink dark:text-primaryWhite hover:bg-hardPink dark:hover:bg-mediumPink outline-none focus:outline-none focus:ring-2 ring-softPink"
     >
-      Sign out
+      Sign in
     </button>
   )
 }
