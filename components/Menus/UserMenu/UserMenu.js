@@ -12,7 +12,7 @@ import SettingsModal from "../../Modal/ModalComponents/SettingsModal/SettingsMod
 
 const TRANSITION_DURATION = 400
 
-export default function UserAvatarMenu({ isUserMenuToggled, toggleUserMenu }) {
+export default function UserMenu({ isUserMenuToggled, toggleUserMenu }) {
   const menuRef = useRef()
   useClickOutside(menuRef, () => toggleUserMenu(false))
   const [setModalComponent, toggleModal] = useModal()
