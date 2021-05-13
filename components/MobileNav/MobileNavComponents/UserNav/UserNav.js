@@ -14,8 +14,6 @@ export default function UserNav() {
   const { user } = useUser()
   const [isUserMenuToggled, toggleUserMenu] = useState(false)
 
-  console.log(user)
-
   const displayUserMenu = () => {
     toggleUserMenu(true)
   }
