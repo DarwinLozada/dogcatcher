@@ -24,7 +24,7 @@ export default function SettingsModal() {
           width="little"
         />
       </div>
-      <hr className="mt-4 mb-6" />
+      <hr className="mt-4 mb-6 filter brightness-75" />
       <div className="flex items-center gap-12">
         <GithubIcon className="w-10 fill-current text-mediumPink dark:text-hardPink" />
         <div>
