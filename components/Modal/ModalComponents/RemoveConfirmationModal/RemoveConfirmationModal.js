@@ -34,8 +34,8 @@ export default function EliminateConfirmationModal({
   }
 
   return (
-    <div className="flex flex-col glassmorphism-gradient rounded-card mx-4 px-8 pt-16 pb-24 gap-12">
-      <h3 className="text-center text-lg">
+    <div className="flex flex-col glassmorphism-gradient dark:dark-glassmorphism-gradient rounded-card mx-4 px-8 pt-16 pb-24 gap-12">
+      <h3 className="text-center text-lg dark:text-primaryWhite">
         Are you sure want to remove{" "}
         <span className="text-hardPink font-medium">{petName}</span> from your
         favorites?

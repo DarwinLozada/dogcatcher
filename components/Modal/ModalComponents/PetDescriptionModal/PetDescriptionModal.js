@@ -1,7 +1,7 @@
 // Icon Components
-import { DescriptionIcon, WikipediaIcon } from "../SvgIcons/SvgIcons"
+import { DescriptionIcon, WikipediaIcon } from "../../../SvgIcons/SvgIcons"
 
-export default function DescriptionCard(props) {
+export default function PetDescriptionModal(props) {
   const { petName, petDescription, wikipediaURL } = props
 
   return (
