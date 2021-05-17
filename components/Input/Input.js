@@ -20,7 +20,7 @@ export default function Input({ label, placeholder, typeOf, classNamesToAdd }) {
         >
           <input
             id={`searchInput ${label}`}
-            className="bg-primaryWhite dark:bg-primaryBlack rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
+            className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
             placeholder={placeholder}
             onFocus={() => toggleFocus(true)}
             onBlur={() => toggleFocus(false)}
