@@ -33,25 +33,25 @@ export default function UserMenu({ isUserMenuToggled, toggleUserMenu }) {
       >
         <ul
           ref={menuRef}
-          className="flex flex-col bg-primaryWhite dark:bg-primaryBlack absolute z-[4] -top-44 -left-14 rounded-card px-4 py-6 gap-4"
+          className="flex flex-col bg-primaryWhite dark:bg-primaryBlack absolute z-[4] -top-44 -left-14 rounded-card px-3 py-5 gap-1"
         >
           <li>
             <button
               onClick={handleSettingsButtonClick}
-              className="flex gap-8 justify-between w-full"
+              className="flex transition-all outline-none focus:outline-none rounded-full focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125"
             >
               <p className="dark:text-primaryWhite">Settings</p>
               <SettingsIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex gap-8 justify-between w-full">
+            <button className="flex transition-all outline-none focus:outline-none rounded-full focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
               <p className="dark:text-primaryWhite">Profile</p>
               <ProfileIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex gap-6 justify-between w-full">
+            <button className="flex transition-all outline-none focus:outline-none rounded-full focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
               <p className="dark:text-primaryWhite">About</p>
               <InfoIcon className="w-6 text-mediumPink dark:text-hardPink fill-current" />
             </button>
