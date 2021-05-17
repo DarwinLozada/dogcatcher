@@ -10,8 +10,6 @@ export default function Switch({ valueToToggle, toggleValue, width }) {
   const switchSize = switchSizes[width][0]
   const switchCircleSize = switchSizes[width][1]
 
-  console.log("translate-x-" + switchSize)
-
   const handleToggle = useCallback(() => {
     toggleValue(!valueToToggle)
   }, [valueToToggle])

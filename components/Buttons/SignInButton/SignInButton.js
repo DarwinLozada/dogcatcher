@@ -1,20 +1,13 @@
 // Dependencies
-import useLogin from "../../../../hooks/useLogin"
-import useToast from "../../../../stores/ToastsStore"
+import useToast from "../../../stores/ToastsStore"
+import useModal from "../../../stores/ModalsStore"
+
+
 
 export default function SignInButton() {
-  const { isLoginLoading, loginError, login } = useLogin()
-
   const toast = useToast()
 
-  const handleClick = () => {
-    login()
-    toast(
-      "succesful",
-      "You have signed out succesfuly",
-      "Now you won't be able to add pets :("
-    )
-  }
+  const handleClick = () => {}
 
   return (
     <button

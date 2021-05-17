@@ -4,12 +4,15 @@ import { GithubIcon } from "../../../SvgIcons/SvgIcons"
 // Components
 import SignOutButton from "../../../Buttons/SignOutButton/SignOutButton"
 import Switch from "../../../Switch/Switch"
+import SignInButton from "../../../Buttons/SignInButton/SignInButton"
 
 // Dependencies
 import useDarkMode from "../../../../stores/ThemeStore"
+import useUser from "../../../../stores/UserStore"
 
 export default function SettingsModal() {
   const [isDarkMode, toggleDarkMode] = useDarkMode()
+  const { user } = useUser()
 
   return (
     <div className="rounded-card bg-primaryWhite py-6 px-4 dark:bg-primaryBlack">
@@ -32,7 +35,7 @@ export default function SettingsModal() {
         </div>
       </div>
       <div className="flex justify-end mt-8">
-        <SignOutButton />
+        {user ? <SignOutButton /> : <SignInButton />}
       </div>
     </div>
   )
