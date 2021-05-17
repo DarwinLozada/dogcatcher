@@ -12,7 +12,7 @@ export default function PetDescriptionModal(props) {
       <DescriptionIcon className="w-8 text-mediumPink" />
       <section className="flex flex-col gap-6">
         <h3 className="text-lg font-semibold text-hardPink dark:text-primaryWhite">{`More info about ${petName}`}</h3>
-        <p className="text-redWine font-medium dark:text-hardPink />
+        <p className="text-redWine font-medium dark:text-hardPink">
           {petDescription}
         </p>
         <a
