@@ -33,7 +33,7 @@ export default function UserMenu({ isUserMenuToggled, toggleUserMenu }) {
       >
         <ul
           ref={menuRef}
-          className="flex flex-col bg-primaryWhite dark:bg-primaryBlack absolute z-[4] -top-44 -left-14 rounded-card px-3 py-5 gap-1"
+          className="flex flex-col bg-primaryWhite dark:bg-primaryBlack absolute z-[4] -top-48 -left-16 rounded-card px-3 py-5 gap-2 shadow-md"
         >
           <li>
             <button
