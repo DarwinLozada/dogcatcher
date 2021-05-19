@@ -17,7 +17,7 @@ export default function Switch({ valueToToggle, toggleValue, width }) {
   return (
     <button
       onClick={handleToggle}
-      className={`relative px-1 rounded-full h-6 w-${switchSize} py-[2px] outline-none focus:outline-none focus:ring-2 ring-mediumPink bg-softPink dark:bg-darkBg`}
+      className={`relative px-1 transition-all duration-300 rounded-full h-6 w-${switchSize} py-[2px] outline-none focus:outline-none focus:ring-2 ring-mediumPink bg-softPink dark:bg-darkBg`}
     >
       <div
         className={`absolute bottom-1 m-auto transition-all duration-300 transform h-${switchCircleSize} w-${switchCircleSize} bg-hardPink dark:bg-hardPink rounded-full ${

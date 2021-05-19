@@ -16,7 +16,10 @@ export default function useLogin() {
         setIsLoginLoading(false)
         setloginError(null)
       })
-      .catch((err) => setloginError(err))
+      .catch((err) => {
+        console.log("error login")
+        setloginError(err)
+      })
   })
 
   return { isLoginLoading, loginError, login }

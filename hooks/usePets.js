@@ -4,11 +4,11 @@ import useFetchFavoritePets from "./useFetchFavoritePets"
 
 // Depending of the page where this hook is being used,
 // it will fetch certain pet data
-export default function usePets(page, ...params) {
+export default function usePets(page, options) {
   switch (page) {
     case "discover":
-      return useFetchRandomPets(...params)
+      return useFetchRandomPets(options)
     case "favorites":
-      return useFetchFavoritePets(...params)
+      return useFetchFavoritePets(options)
   }
 }

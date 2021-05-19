@@ -1,11 +1,23 @@
 import { SearchIcon } from "../SvgIcons/SvgIcons"
 import { useState } from "react"
 
-export default function Input({ label, placeholder, typeOf, classNamesToAdd }) {
+export default function Input({
+  label,
+  placeholder,
+  typeOf,
+  classNamesToAdd,
+  state,
+  setState,
+}) {
   const [isInputFocused, toggleFocus] = useState(false)
 
+  const handleChange = (e) => {
+    e.preventDefault()
+    setState(e.target.value)
+  }
+
   return (
-    <div className={`${classNamesToAdd} flex flex-col gap-2`}>
+    <form className={`${classNamesToAdd} flex flex-col gap-2`}>
       <label
         htmlFor={`searchInput ${label}`}
         className="text-xs dark:text-primaryWhite"
@@ -22,6 +34,8 @@ export default function Input({ label, placeholder, typeOf, classNamesToAdd }) {
             id={`searchInput ${label}`}
             className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
             placeholder={placeholder}
+            value={state}
+            onChange={handleChange}
             onFocus={() => toggleFocus(true)}
             onBlur={() => toggleFocus(false)}
           />
@@ -30,6 +44,6 @@ export default function Input({ label, placeholder, typeOf, classNamesToAdd }) {
           </div>
         </div>
       )}
-    </div>
+    </form>
   )
 }
