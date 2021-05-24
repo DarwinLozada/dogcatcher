@@ -11,13 +11,16 @@ export default function Input({
 }) {
   const [isInputFocused, toggleFocus] = useState(false)
 
-  const handleChange = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setState(e.target.value)
   }
 
   return (
-    <form className={`${classNamesToAdd} flex flex-col gap-2`}>
+    <form
+      className={`${classNamesToAdd} flex flex-col gap-2`}
+      onClick={handleSubmit}
+    >
       <label
         htmlFor={`searchInput ${label}`}
         className="text-xs dark:text-primaryWhite"
@@ -34,14 +37,12 @@ export default function Input({
             id={`searchInput ${label}`}
             className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
             placeholder={placeholder}
-            value={state}
-            onChange={handleChange}
             onFocus={() => toggleFocus(true)}
             onBlur={() => toggleFocus(false)}
           />
-          <div className="grid place-items-center bg-hardPink rounded-r-card p-3">
+          <button className="grid place-items-center bg-hardPink rounded-r-card p-3">
             <SearchIcon className="w-5 h-5" />
-          </div>
+          </button>
         </div>
       )}
     </form>

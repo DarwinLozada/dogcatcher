@@ -5,9 +5,10 @@ import Input from "../../components/Input/Input"
 import Select from "../../components/Select/Select"
 
 // Dependencies
-import usePets from "../../hooks/usePets"
-import { useState } from "react"
+import usePets from "../../stores/PetsStore"
+import { useEffect, useState } from "react"
 import { isDog } from "../../utils/petFunctions"
+import { sliceArrayBySteps } from "../../utils/arrayFunctions"
 
 const petSpeciesValues = ["All", "Dogs", "Cats"]
 
@@ -17,10 +18,14 @@ export default function PetsList({ page }) {
     petsQuery: petsQuery,
   })
 
-  console.log(pets)
+  const [petsChunks, setPetChunks] = useState([])
+  const [petsChunkToRender, setPetsChunkToRender] = useState(0)
 
-  const [petsToDisplay, setPetsToDisplay] = useState(pets)
+  useEffect(() => {
+    if (pets) setPetChunks(sliceArrayBySteps(pets, 20))
+  }, [pets])
 
+  console.log(petsChunks)
   console.log(petsQuery)
 
   if (petsError) {
@@ -31,12 +36,14 @@ export default function PetsList({ page }) {
     )
   }
 
-  if (petsAreLoading)
+  if (petsAreLoading || petsChunks.length === 0)
     return (
       <div className="flex items-center bg-softBrown justify-center flex-grow">
         Cargando...
       </div>
     )
+
+  console.log(petsChunks[0])
 
   return (
     <>
@@ -53,7 +60,7 @@ export default function PetsList({ page }) {
       </div>
       <ul className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
         {" "}
-        {pets.map((pet) => {
+        {petsChunks[petsChunkToRender].map((pet) => {
           return isDog(pet) ? (
             <DogCard petInfo={pet} key={pet.name} page={page} />
           ) : (
