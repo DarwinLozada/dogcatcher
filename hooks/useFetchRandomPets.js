@@ -3,6 +3,7 @@ import useSWR from "swr"
 import { useCallback } from "react"
 import { returnShuffledArray } from "../utils/arrayFunctions"
 import { getRandomNumberWithMax } from "../utils/numberFunctions"
+import { petSpecies } from "../constants/pets.contants"
 
 const BREEDS_LIMIT_PER_PAGE = "10"
 
@@ -24,17 +25,30 @@ export default function useFetchPets() {
     try {
       let petsData = []
 
-      const catsData = await fetch(catsURL + randomCatsPage)
+      let catsData = await fetch(catsURL + randomCatsPage)
 
       const parsedCatsData = await catsData.json()
 
-      petsData = petsData.concat(parsedCatsData)
+      catsData = parsedCatsData.map((cat) => ({
+        species: petSpecies.cat,
+        ...cat,
+      }))
 
-      const dogsData = await fetch(dogsURL + randomDogsPage)
+      petsData = petsData.concat(catsData)
+
+      let dogsData = await fetch(dogsURL + randomDogsPage)
+
       const parsedDogsData = await dogsData.json()
 
-      petsData = petsData.concat(parsedDogsData)
+      dogsData = parsedDogsData.map((dog) => ({
+        species: petSpecies.dog,
+        ...dog,
+      }))
+
+      petsData = petsData.concat(dogsData)
       petsData = returnShuffledArray(petsData)
+
+      console.log(petsData)
 
       return petsData
     } catch (err) {

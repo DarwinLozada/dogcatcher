@@ -20,12 +20,8 @@ export default function UserNav() {
 
   return (
     <div className="relative">
-      <UserMenu
-        isUserMenuToggled={isUserMenuToggled}
-        toggleUserMenu={toggleUserMenu}
-      />
       {user === undefined && <Spinner width={"8"} />}
-      <div onClick={displayUserMenu}>
+      <button onClick={displayUserMenu}>
         {user === null && <ProfileIcon className="w-8" />}
         {user && (
           <UserAvatar
@@ -34,7 +30,11 @@ export default function UserNav() {
             isStateActivated={isUserMenuToggled}
           />
         )}
-      </div>
+      </button>
+      <UserMenu
+        isUserMenuToggled={isUserMenuToggled}
+        toggleUserMenu={toggleUserMenu}
+      />
     </div>
   )
 }

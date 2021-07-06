@@ -12,7 +12,7 @@ export default function Header() {
   const [isDarkMode] = useDarkMode()
 
   return (
-    <div className="flex items-center bg-primaryWhite dark:bg-primaryBlack min-h-[99px] max-h-[100px] w-screen py-12 px-6">
+    <div className="flex items-center bg-primaryWhite dark:bg-primaryBlack min-h-[99px] max-h-[100px] w-full py-12 px-6">
       <div>
         <Image
           src={`${

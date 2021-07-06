@@ -1,15 +1,14 @@
 import { useState } from "react"
 import { ArrowIcon } from "../SvgIcons/SvgIcons"
 
-export default function Select({ label, values }) {
+export default function Select({ label, options, state, setState }) {
   // Initial select state is the first value passed to the component
-  const [selectState, setSelectState] = useState(values[0])
   const [isArrowDown, toggleArrowDirection] = useState(true)
 
   const handleChange = (event) => {
     event.preventDefault()
     toggleArrowDirection(true)
-    setSelectState(event.target.value)
+    setState(event.target.value)
   }
 
   return (
@@ -31,9 +30,9 @@ export default function Select({ label, values }) {
           onChange={handleChange}
           onFocus={() => toggleArrowDirection(false)}
           onBlur={() => toggleArrowDirection(true)}
-          value={selectState}
+          value={state}
         >
-          {values.map((value) => (
+          {options.map((value) => (
             <option
               value={value}
               className="bg-primaryWhite dark:bg-primaryBlack"

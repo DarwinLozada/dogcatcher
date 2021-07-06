@@ -1,14 +1,16 @@
 // Components
 import Header from "../Header/Header"
 import MobileNav from "../MobileNav/MobileNav"
+import SEO from "../SEO/SEO"
 
-// Ui components containers
+// UI components containers
 import { ToastContainer } from "../../stores/ToastsStore"
 import { ModalContainer } from "../../stores/ModalsStore"
 
 export default function PageLayout({ children }) {
   return (
     <ToastContainer>
+      <SEO />
       <div id="modal-container"></div>
       <ModalContainer>
         <div className="relative flex flex-col bg-lightBrown dark:bg-darkBg min-h-screen pb-24">

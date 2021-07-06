@@ -9,7 +9,6 @@ export default function Favorites() {
         <h1 className="text-[34px] dark:text-primaryWhite font-medium mb-8">
           Your Favorites
         </h1>
-
         <PetsList page="favorites" />
       </div>
     </PageLayout>

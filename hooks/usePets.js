@@ -1,7 +1,6 @@
 // Dependencies
 import useFetchPets from "./useFetchPets"
 import useFetchFavoritePets from "./useFetchFavoritePets"
-import useFetchAllPets from "./useFetchAllPets"
 import { useState } from "react"
 
 // Depending of the page where this hook is being used,
