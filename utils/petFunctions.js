@@ -3,8 +3,5 @@ export const isDog = (pet) => {
 }
 
 export const filterPetsBySpecies = (petsChunk, petFilter) => {
-  console.log(petsChunk)
-  console.log(petFilter)
-
   return petsChunk.filter((pet) => pet.species === petFilter)
 }

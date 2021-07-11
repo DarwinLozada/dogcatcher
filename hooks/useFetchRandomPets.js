@@ -18,10 +18,12 @@ export default function useFetchPets(petsNameQuery) {
   const catsQueryURL = `https://api.thecatapi.com/v1/breeds/search?q=${petsNameQuery}`
 
   const fetcher = async (_, petsNameQuery) => {
-    const randomCatsPage = getRandomNumberWithMax(CATS_PAGE_LIMIT).toString()
-    const randomDogsPage = getRandomNumberWithMax(DOGS_PAGE_LIMIT).toString()
-
-    console.log(petsNameQuery)
+    const randomCatsPage = getRandomNumberWithMax(
+      Number(CATS_PAGE_LIMIT)
+    ).toString()
+    const randomDogsPage = getRandomNumberWithMax(
+      Number(DOGS_PAGE_LIMIT)
+    ).toString()
 
     try {
       let petsData = []
