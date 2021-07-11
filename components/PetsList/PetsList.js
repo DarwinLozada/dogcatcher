@@ -2,6 +2,7 @@
 import PetCard from "../../components/PetsCards/PetCard"
 import Input from "../../components/Input/Input"
 import Select from "../../components/Select/Select"
+import { SearchIcon } from "../SvgIcons/SvgIcons"
 
 // Dependencies
 import usePets from "../../stores/PetsStore"
@@ -13,8 +14,12 @@ import { petSpeciesFilter } from "../../constants/pets.contants"
 export default function PetsList({ page }) {
   const [petsQuery, setPetsQuery] = useState("")
   const { pets, petsError, petsAreLoading } = usePets(page, {
-    petsQuery: petsQuery,
+    petsQuery,
   })
+
+  const handleQueryChange = (event) => {
+    setPetsQuery(event.target.value)
+  }
 
   const [petsChunks, setPetChunks] = useState([])
   const [petsChunkToRender, setPetsChunkToRender] = useState(0)
@@ -32,13 +37,6 @@ export default function PetsList({ page }) {
     )
   }
 
-  if (petsAreLoading || petsChunks.length === 0)
-    return (
-      <div className="flex items-center bg-softBrown justify-center flex-grow">
-        Cargando...
-      </div>
-    )
-
   const renderPets =
     speciesFilter !== petSpeciesFilter.all
       ? filterPetsBySpecies(petsChunks[petsChunkToRender], speciesFilter)
@@ -52,8 +50,9 @@ export default function PetsList({ page }) {
           label="Search by breed"
           typeOf="searchInput"
           classNamesToAdd="min-w-min"
-          state={petsQuery}
-          setState={setPetsQuery}
+          disabled={petsAreLoading}
+          onChange={handleQueryChange}
+          RightIcon={<SearchIcon className="w-5 h-5" />}
         />
         <Select
           options={Object.values(petSpeciesFilter)}
@@ -62,11 +61,17 @@ export default function PetsList({ page }) {
           setState={setSpeciesFilter}
         />
       </div>
-      <ul className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
-        {renderPets.map((pet) => (
-          <PetCard pet={pet} page={page} key={pet.name} />
-        ))}
-      </ul>
+      {petsAreLoading || petsChunks.length === 0 ? (
+        <div className="flex items-center bg-softBrown justify-center flex-grow">
+          Cargando...
+        </div>
+      ) : (
+        <ul className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
+          {renderPets.map((pet) => (
+            <PetCard pet={pet} page={page} key={pet.name} />
+          ))}
+        </ul>
+      )}
     </>
   )
 }

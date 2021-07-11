@@ -1,4 +1,3 @@
-import { SearchIcon } from "../SvgIcons/SvgIcons"
 import { useState } from "react"
 
 export default function Input({
@@ -6,21 +5,14 @@ export default function Input({
   placeholder,
   typeOf,
   classNamesToAdd,
-  state,
-  setState,
+  disabled,
+  onChange,
+  RightIcon,
 }) {
   const [isInputFocused, toggleFocus] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setState(e.target.value)
-  }
-
   return (
-    <form
-      className={`${classNamesToAdd} flex flex-col gap-2`}
-      onClick={handleSubmit}
-    >
+    <div className={`${classNamesToAdd} flex flex-col gap-2`}>
       <label
         htmlFor={`searchInput ${label}`}
         className="text-xs dark:text-primaryWhite"
@@ -35,16 +27,20 @@ export default function Input({
         >
           <input
             id={`searchInput ${label}`}
-            className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
+            className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite disabled:opacity-50 rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
             placeholder={placeholder}
+            disabled={disabled}
             onFocus={() => toggleFocus(true)}
             onBlur={() => toggleFocus(false)}
+            onChange={onChange}
           />
-          <button className="grid place-items-center bg-hardPink rounded-r-card p-3">
-            <SearchIcon className="w-5 h-5" />
-          </button>
+          {RightIcon && (
+            <div className="grid place-items-center bg-hardPink rounded-r-card p-3">
+              {RightIcon}
+            </div>
+          )}
         </div>
       )}
-    </form>
+    </div>
   )
 }

@@ -26,7 +26,7 @@ export default function Select({ label, options, state, setState }) {
       >
         <select
           id={`${label} select`}
-          className="appearance-none min-w-min rounded-card px-4 pr-6 bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite flex h-12 outline-none w-full"
+          className="sappearance-none min-w-min rounded-card px-4 pr-10 bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite flex h-12 outline-none w-full"
           onChange={handleChange}
           onFocus={() => toggleArrowDirection(false)}
           onBlur={() => toggleArrowDirection(true)}

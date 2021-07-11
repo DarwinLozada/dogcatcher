@@ -21,7 +21,10 @@ export default function UserNav() {
   return (
     <div className="relative">
       {user === undefined && <Spinner width={"8"} />}
-      <button onClick={displayUserMenu}>
+      <button
+        onClick={displayUserMenu}
+        className="outline-none focus:outline-none"
+      >
         {user === null && <ProfileIcon className="w-8" />}
         {user && (
           <UserAvatar

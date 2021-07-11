@@ -1,14 +1,11 @@
 // Dependencies
-import useSWR from "swr"
+import useSWR, { mutate } from "swr"
 import useFetchRandomPets from "../hooks/useFetchRandomPets"
 import useFetchFavoritePets from "../hooks/useFetchFavoritePets"
-import { useContext, createContext, useMemo } from "react"
+import { createContext, useMemo, useEffect } from "react"
+import { mapedPagesWithQueryKeys } from "../constants/pets.contants"
 
 const PetsContext = createContext()
-
-const filterPetsByQuery = (pets, petsQuery) => {
-  return pets.filter((pet) => pet.name.includes(petsQuery))
-}
 
 export const PetsProvider = ({ children }) => {
   const { data, error } = useSWR("all-pets")
@@ -27,14 +24,14 @@ export const PetsProvider = ({ children }) => {
 }
 
 export default function usePets(fetchCase, { petsQuery }) {
-  const data = useContext(PetsContext)
+  useEffect(() => {
+    mutate(mapedPagesWithQueryKeys[fetchCase])
+  }, [petsQuery])
 
   switch (fetchCase) {
     case "discover":
-      return useFetchRandomPets()
+      return useFetchRandomPets(petsQuery)
     case "favorites":
-      return useFetchFavoritePets()
-    case "query":
-      return filterPetsByQuery(data, petsQuery)
+      return useFetchFavoritePets(petsQuery)
   }
 }

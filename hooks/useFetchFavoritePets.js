@@ -2,6 +2,7 @@
 import useSWR from "swr"
 import useUser from "../stores/UserStore"
 import { useCallback } from "react"
+import { petsQueryKeys } from "../constants/pets.contants"
 import {
   fetchFavoritePets,
   mapPetDataFromDatabase,
@@ -19,7 +20,7 @@ export default function useFetchFavoritePets() {
   }, [user])
 
   const { data, error } = useSWR(
-    () => (user.uid ? "favorite-pets" : null),
+    () => (user.uid ? petsQueryKeys.favoritePets : null),
     fetcher
   )
 

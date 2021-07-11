@@ -1,9 +1,8 @@
 // Dependencies
 import useSWR from "swr"
-import { useCallback } from "react"
 import { returnShuffledArray } from "../utils/arrayFunctions"
 import { getRandomNumberWithMax } from "../utils/numberFunctions"
-import { petSpecies } from "../constants/pets.contants"
+import { petsQueryKeys, petSpecies } from "../constants/pets.contants"
 
 const BREEDS_LIMIT_PER_PAGE = "10"
 
@@ -12,20 +11,24 @@ const BREEDS_LIMIT_PER_PAGE = "10"
 const CATS_PAGE_LIMIT = "6"
 const DOGS_PAGE_LIMIT = "17"
 
-const dogsURL = `https://api.thedogapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
-const dogsQueryURL = `https://api.thedogapi.com/v1/breeds/search?q=`
-const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
-const catsQueryURL = `https://api.thecatapi.com/v1/breeds/search?q=`
+export default function useFetchPets(petsNameQuery) {
+  const dogsURL = `https://api.thedogapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
+  const dogsQueryURL = `https://api.thedogapi.com/v1/breeds/search?q=${petsNameQuery}`
+  const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}$q=exotic&page=`
+  const catsQueryURL = `https://api.thecatapi.com/v1/breeds/search?q=${petsNameQuery}`
 
-export default function useFetchPets() {
-  const fetcher = useCallback(async () => {
+  const fetcher = async (_, petsNameQuery) => {
     const randomCatsPage = getRandomNumberWithMax(CATS_PAGE_LIMIT).toString()
     const randomDogsPage = getRandomNumberWithMax(DOGS_PAGE_LIMIT).toString()
+
+    console.log(petsNameQuery)
 
     try {
       let petsData = []
 
-      let catsData = await fetch(catsURL + randomCatsPage)
+      let catsData = await fetch(
+        petsNameQuery ? catsQueryURL : catsURL + randomCatsPage
+      )
 
       const parsedCatsData = await catsData.json()
 
@@ -36,7 +39,9 @@ export default function useFetchPets() {
 
       petsData = petsData.concat(catsData)
 
-      let dogsData = await fetch(dogsURL + randomDogsPage)
+      let dogsData = await fetch(
+        petsNameQuery ? dogsQueryURL : dogsURL + randomDogsPage
+      )
 
       const parsedDogsData = await dogsData.json()
 
@@ -48,17 +53,19 @@ export default function useFetchPets() {
       petsData = petsData.concat(dogsData)
       petsData = returnShuffledArray(petsData)
 
-      console.log(petsData)
-
       return petsData
     } catch (err) {
       throw new Error(err)
     }
-  }, [])
+  }
 
-  const { data, error } = useSWR("random-pets", fetcher, {
-    revalidateOnFocus: false,
-  })
+  const { data, error } = useSWR(
+    [petsQueryKeys.randomPets, petsNameQuery],
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
+  )
 
   return {
     pets: data,
