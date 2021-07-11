@@ -31,8 +31,6 @@ export default function CatCard({ petInfo, page }) {
     wikipedia_url: wikipediaURL,
   } = petInfo
 
-  console.log(petInfo)
-
   // Sometimes the API does not return the temperament of the cat
   const temperamentArray = temperament ? temperament.split(", ") : null
 
