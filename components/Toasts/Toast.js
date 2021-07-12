@@ -32,7 +32,7 @@ export default function Toast({ type, title, message }) {
             <p className="text-xs text-softPink font-semibold">{message}</p>
           </div>
           <CancelIcon
-            className="w-3 fill-current text-softPink"
+            className="w-3 fill-current text-softPink cursor-pointer"
             onClick={() => setShowToast(false)}
           />
         </div>

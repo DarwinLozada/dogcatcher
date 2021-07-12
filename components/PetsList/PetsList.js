@@ -58,6 +58,7 @@ export default function PetsList({ page }) {
           options={Object.values(petSpeciesFilter)}
           label="Filter by species"
           state={speciesFilter}
+          disabled={petsAreLoading}
           setState={setSpeciesFilter}
         />
       </div>

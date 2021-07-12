@@ -14,7 +14,7 @@ const DOGS_PAGE_LIMIT = "17"
 export default function useFetchPets(petsNameQuery) {
   const dogsURL = `https://api.thedogapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
   const dogsQueryURL = `https://api.thedogapi.com/v1/breeds/search?q=${petsNameQuery}`
-  const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}$q=exotic&page=`
+  const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
   const catsQueryURL = `https://api.thecatapi.com/v1/breeds/search?q=${petsNameQuery}`
 
   const fetcher = async (_, petsNameQuery) => {
@@ -24,6 +24,8 @@ export default function useFetchPets(petsNameQuery) {
     const randomDogsPage = getRandomNumberWithMax(
       Number(DOGS_PAGE_LIMIT)
     ).toString()
+
+    console.log(catsURL + randomCatsPage)
 
     try {
       let petsData = []

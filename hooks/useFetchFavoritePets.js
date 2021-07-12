@@ -1,26 +1,25 @@
 // Dependencies
 import useSWR from "swr"
 import useUser from "../stores/UserStore"
-import { useCallback } from "react"
 import { petsQueryKeys } from "../constants/pets.contants"
 import {
   fetchFavoritePets,
   mapPetDataFromDatabase,
 } from "../firebase-services/database"
 
-export default function useFetchFavoritePets() {
+export default function useFetchFavoritePets(petsNameQuery) {
   const { user } = useUser()
 
-  const fetcher = useCallback(() => {
-    return fetchFavoritePets(user.uid)
+  const fetcher = (_, petsNameQuery) => {
+    return fetchFavoritePets(user.uid, petsNameQuery)
       .then((petsQueryList) => {
         return mapPetDataFromDatabase(petsQueryList)
       })
       .catch((err) => console.log(err))
-  }, [user])
+  }
 
   const { data, error } = useSWR(
-    () => (user.uid ? petsQueryKeys.favoritePets : null),
+    () => (user.uid ? [petsQueryKeys.favoritePets, petsNameQuery] : null),
     fetcher
   )
 

@@ -85,12 +85,27 @@ export const mapPetDataFromDatabase = (petsQueryList) => {
   return allPetsInfoList
 }
 
-export const fetchFavoritePets = (userUID) => {
+export const fetchFavoritePets = (userUID, petsQuery) => {
   return database
     .collection("users")
     .doc(userUID)
     .get()
-    .then((userData) => retrieveFavoritePetsData(userData.data().favorites))
+    .then((userData) => {
+      let filteredPetsByQuery = {}
+
+      for (const species in userData.data().favorites) {
+        const filteredSpecies = userData
+          .data()
+          .favorites[species].filter((petName) => petName.includes(petsQuery))
+
+        filteredPetsByQuery = {
+          [species]: filteredSpecies,
+          ...filteredPetsByQuery,
+        }
+      }
+
+      return retrieveFavoritePetsData(filteredPetsByQuery)
+    })
     .catch((err) => console.log(err))
 }
 

@@ -1,5 +1,6 @@
 // Dependencies
 import Image from "next/image"
+import useFetchPetImage from "../../hooks/useFetchPetImage"
 
 // Utility functions
 import { isObjectPresentOrEmpty } from "../../utils/objectFunctions"
@@ -21,14 +22,25 @@ import RemoveFromFavorites from "../Buttons/RemoveFromFavorites/RemoveFromFavori
 
 export default function DogCard({ petInfo, page }) {
   const {
+    species,
     name,
-    image,
+    image: petInfoImage,
     weight,
     height,
     bred_for: bredFor,
     life_span: lifeSpan,
     temperament,
+    reference_image_id: referenceImageId,
   } = petInfo
+
+  // If petInfo does not have the pet's image but the image reference
+  // fetch it with the image ID
+  const { fetchedImage } = useFetchPetImage(
+    petInfoImage === undefined ? referenceImageId : null,
+    species
+  )
+
+  const petImage = petInfoImage === undefined ? fetchedImage : petInfoImage
 
   let temperamentArray
 
@@ -37,20 +49,19 @@ export default function DogCard({ petInfo, page }) {
 
   return (
     <li className="flex flex-col mx-12 rounded-card overflow-hidden p-[1px] pet-card-gradient dark:pet-card-dark-gradient w-full shadow-sm">
-      {isObjectPresentOrEmpty(image) ? (
+      {isObjectPresentOrEmpty(petImage) ? (
         <div className="flex flex-col items-center justify-center gap-4 py-16 z-[2] dark:bg-darkBg">
-          {" "}
           <h3 className="font-bold text-mediumPink">No image avaliable</h3>
-          <SadDog className="w-24" />
+          <SadDog className="w-20" />
         </div>
       ) : (
         <div className="flex relative max-h-[271px] rounded-t-card self-stretch items-stretch overflow-hidden dark:bg-darkBg">
           <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
-            src={image.url}
+            src={petImage.url}
             layout="intrinsic"
-            width={image.width}
-            height={image.height}
+            width={petImage.width}
+            height={petImage.height}
             alt={name}
           />
         </div>

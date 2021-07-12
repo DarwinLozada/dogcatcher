@@ -19,6 +19,11 @@ export const petsQueryKeys = {
 }
 
 export const mapedPagesWithQueryKeys = {
-  discover: petsQueryKeys.randomPets,
-  favorites: petsQueryKeys.favoritePets,
+  [discover]: petsQueryKeys.randomPets,
+  [favorites]: petsQueryKeys.favoritePets,
+}
+
+export const queryPetsImagesURL = {
+  Cats: "https://api.thecatapi.com/v1/images/",
+  Dogs: "https://api.thedogapi.com/v1/images/",
 }
