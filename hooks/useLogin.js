@@ -1,11 +1,13 @@
 import { useState, useCallback } from "react"
 import useUser from "../stores/UserStore"
 import { login as firebaseLogin } from "../firebase-services/user"
+import useToast from "../stores/ToastsStore"
 
 export default function useLogin() {
   const [isLoginLoading, setIsLoginLoading] = useState(false)
   const [loginError, setloginError] = useState(null)
   const { dispatch } = useUser()
+  const toast = useToast()
 
   const login = useCallback(() => {
     setloginError(null)
@@ -17,7 +19,7 @@ export default function useLogin() {
         setloginError(null)
       })
       .catch((err) => {
-        console.log("error login")
+        toast("error", "There was an error with the login", "Please try again")
         setloginError(err)
       })
   })

@@ -38,20 +38,20 @@ export default function UserMenu({ isUserMenuToggled, toggleUserMenu }) {
           <li>
             <button
               onClick={handleSettingsButtonClick}
-              className="flex transition-all outline-none focus:outline-none rounded-card focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125"
+              className="flex transition-all outline-none focus:outline-none rounded-card dark:focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125"
             >
               <p className="dark:text-primaryWhite">Settings</p>
               <SettingsIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex transition-all outline-none focus:outline-none rounded-card focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
+            <button className="flex transition-all outline-none focus:outline-none rounded-card dark:focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
               <p className="dark:text-primaryWhite">Profile</p>
               <ProfileIcon className="w-6" />
             </button>
           </li>
           <li>
-            <button className="flex transition-all outline-none focus:outline-none rounded-card focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
+            <button className="flex transition-all outline-none focus:outline-none rounded-card focus:bg-primaryWhite dark:focus:bg-darkBg px-3 py-1 duration-300 gap-8 justify-between w-full filter focus:brightness-125">
               <p className="dark:text-primaryWhite">About</p>
               <InfoIcon className="w-6 text-mediumPink dark:text-hardPink fill-current" />
             </button>

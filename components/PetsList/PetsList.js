@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 import { filterPetsBySpecies } from "../../utils/petFunctions"
 import { sliceArrayBySteps } from "../../utils/arrayFunctions"
 import { petSpeciesFilter } from "../../constants/pets.contants"
+import Spinner from "../Spinner/Spinner"
 
 export default function PetsList({ page }) {
   const [petsQuery, setPetsQuery] = useState("")
@@ -49,8 +50,7 @@ export default function PetsList({ page }) {
           placeholder="Example: Siberian Husky"
           label="Search by breed"
           typeOf="searchInput"
-          classNamesToAdd="min-w-min"
-          disabled={petsAreLoading}
+          extraClassNames="min-w-min sm:w-full sm:max-w-[500px]"
           onChange={handleQueryChange}
           RightIcon={<SearchIcon className="w-5 h-5" />}
         />
@@ -63,11 +63,11 @@ export default function PetsList({ page }) {
         />
       </div>
       {petsAreLoading || petsChunks.length === 0 ? (
-        <div className="flex items-center bg-softBrown justify-center flex-grow">
-          Cargando...
+        <div className="flex items-center mt-16 justify-center flex-grow">
+          <Spinner width="8" />
         </div>
       ) : (
-        <ul className="flex flex-col items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
           {renderPets.map((pet) => (
             <PetCard pet={pet} page={page} key={pet.name} />
           ))}

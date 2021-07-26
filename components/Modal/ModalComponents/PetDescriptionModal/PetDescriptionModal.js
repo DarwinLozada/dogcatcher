@@ -6,7 +6,7 @@ export default function PetDescriptionModal(props) {
 
   return (
     <div
-      className="grid gap-6 bg-softPink dark:pet-card-dark-gradient mx-8 px-6 py-8 rounded-card"
+      className="grid gap-6 bg-softPink dark:pet-card-dark-gradient md:max-w-xl mx-8 px-6 py-8 rounded-card"
       style={{ gridTemplateColumns: "auto auto" }}
     >
       <DescriptionIcon className="w-8 text-mediumPink" />

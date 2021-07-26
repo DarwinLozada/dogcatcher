@@ -26,10 +26,12 @@ export default function useModal() {
   return [
     (ComponentRef, componentProps) => {
       const element = (
-        <ComponentRef
-          {...componentProps}
-          toggleModal={modalContext.toggleModal}
-        />
+        <>
+          <ComponentRef
+            {...componentProps}
+            toggleModal={modalContext.toggleModal}
+          />
+        </>
       )
       modalContext.setElementToDisplay(element)
     },

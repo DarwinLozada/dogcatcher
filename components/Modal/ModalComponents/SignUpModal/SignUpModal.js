@@ -8,7 +8,7 @@ import TwitterButton from "../../../Buttons/SignUpButtons/TwitterButton"
 export default function SignUpModal() {
   return (
     <div className="relative glassmorphism-gradient dark:dark-glassmorphism-gradient overflow-hidden gap-7 px-6 mx-4 flex flex-col pt-16 pb-32 rounded-card items-center text-center shadow">
-      <h2 className="text-hardPink text-3xl font-medium">{`You haven't sign up`}</h2>
+      <h2 className="text-hardPink text-3xl font-medium">{`You haven't signed up`}</h2>
       <p className="text-sm z-10 dark:text-primaryWhite">
         Please do, so you can start massively collecting pets{" "}
       </p>

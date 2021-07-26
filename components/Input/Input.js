@@ -4,15 +4,15 @@ export default function Input({
   label,
   placeholder,
   typeOf,
-  classNamesToAdd,
+  extraClassNames,
   disabled,
   onChange,
   RightIcon,
 }) {
-  const [isInputFocused, toggleFocus] = useState(false)
+  const [isInputFocused, toggleFocus] = useState(true)
 
   return (
-    <div className={`${classNamesToAdd} flex flex-col gap-2`}>
+    <div className={`${extraClassNames} flex flex-col gap-2`}>
       <label
         htmlFor={`searchInput ${label}`}
         className="text-xs dark:text-primaryWhite"

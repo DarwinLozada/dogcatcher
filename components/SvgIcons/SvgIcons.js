@@ -823,3 +823,17 @@ export const GithubIcon = ({ className }) => {
     </svg>
   )
 }
+
+export const ErrorIcon = ({ className }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M7.9624 0C3.572 0 0 3.5888 0 8C0 12.4112 3.5888 16 8 16C12.4112 16 16 12.4112 16 8C16 3.5888 12.3944 0 7.9624 0ZM8 14.4C4.4712 14.4 1.6 11.5288 1.6 8C1.6 4.4712 4.4536 1.6 7.9624 1.6C11.5128 1.6 14.4 4.4712 14.4 8C14.4 11.5288 11.5288 14.4 8 14.4Z" />
+      <path d="M7.20001 4H8.80001V9.6H7.20001V4ZM7.20001 10.4H8.80001V12H7.20001V10.4Z" />
+    </svg>
+  )
+}
