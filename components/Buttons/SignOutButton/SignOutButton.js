@@ -1,19 +1,11 @@
 // Dependencies
 import useSignOut from "../../../hooks/useSignOut"
-import useToast from "../../../stores/ToastsStore"
 
 export default function SignOutButton() {
-  const { isSignOutLoading, signOutError, signOut } = useSignOut()
-
-  const toast = useToast()
+  const { isSignOutLoading, signOut } = useSignOut()
 
   const handleClick = () => {
     signOut()
-    toast(
-      "succesful",
-      "You have signed out succesfuly",
-      "Now you won't be able to add pets :("
-    )
   }
 
   return (

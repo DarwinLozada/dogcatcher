@@ -55,7 +55,7 @@ export default function DogCard({ petInfo, page }) {
           <SadDog className="w-20" />
         </div>
       ) : (
-        <div className="flex relative max-h-[271px] lg:max-h-full lg:h-full max-w-[450px] rounded-t-card lg:rounded-tr-none lg:rounded-l-card self-stretch items-stretch overflow-hidden dark:bg-darkBg">
+        <div className="flex relative max-h-[271px] lg:max-h-full lg:h-full sm:max-w-[450px] rounded-t-card lg:rounded-tr-none lg:rounded-l-card self-stretch items-stretch overflow-hidden dark:bg-darkBg">
           <PawIcon className="animate animate-spin-slow w-16 absolute left-1/2 -ml-8 -mt-8 top-1/2 fill-current text-mediumPink" />
           <Image
             src={petImage.url}

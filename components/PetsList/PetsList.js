@@ -2,7 +2,7 @@
 import PetCard from "../../components/PetsCards/PetCard"
 import Input from "../../components/Input/Input"
 import Select from "../../components/Select/Select"
-import { SearchIcon } from "../SvgIcons/SvgIcons"
+import { SadCat, SadDog, SearchIcon } from "../SvgIcons/SvgIcons"
 
 // Dependencies
 import usePets from "../../stores/PetsStore"
@@ -11,6 +11,7 @@ import { filterPetsBySpecies } from "../../utils/petFunctions"
 import { sliceArrayBySteps } from "../../utils/arrayFunctions"
 import { petSpeciesFilter } from "../../constants/pets.contants"
 import Spinner from "../Spinner/Spinner"
+import DogCard from "../PetsCards/DogCard"
 
 export default function PetsList({ page }) {
   const [petsQuery, setPetsQuery] = useState("")
@@ -30,13 +31,18 @@ export default function PetsList({ page }) {
     if (pets) setPetChunks(sliceArrayBySteps(pets, 20))
   }, [pets])
 
-  if (petsError) {
+  if (petsError)
     return (
-      <div className="flex items-center bg-softBrown justify-center flex-grow">
-        Error
+      <div className="flex flex-col gap-8 items-center justify-center flex-grow mt-20">
+        <p className="text-lg font-medium dark:text-primaryWhite">
+          There was an error retrieving the pets data
+        </p>
+        <div className="flex gap-6">
+          <SadCat className="w-16" />
+          <SadDog className="w-16" />
+        </div>
       </div>
     )
-  }
 
   const renderPets =
     speciesFilter !== petSpeciesFilter.all
