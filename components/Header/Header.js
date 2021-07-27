@@ -48,13 +48,14 @@ export default function Header() {
               <UserAvatar avatarURL={user.avatar} username={user.name} />
               <p className="text-white text-sm">{user.name}</p>
             </div>
-            <Button onClick={() => router.push("/favorites")}>
+            <Button size="medium" onClick={() => router.push("/favorites")}>
               My favorites
             </Button>
           </div>
         )}
         {user === null && (
           <Button
+            size="medium"
             disabled={isLoginLoading}
             onClick={() => {
               login()
