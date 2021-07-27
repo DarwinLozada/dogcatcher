@@ -1,9 +1,0 @@
-{
-  "name": "DogCatcher | Know your pet!",
-  "short_name": "DogCatcher",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#EA2A69",
-  "theme_color": "#EA2A69",
-  "orientation": "portrait-primary"
-}
