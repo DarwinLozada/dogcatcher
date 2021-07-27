@@ -9,7 +9,8 @@ const MODAL_TRANSITION_DURATION = 500
 export default function Modal({ children, showModal, toggleModal }) {
   // Just mount the modal component when Server Side Rendering has
   // finished (document and window objects are undefined)
-  if (typeof document === "undefined") return null
+  if ((typeof document === "undefined") | (typeof window === "undefined"))
+    return null
 
   const elementRef = useRef()
 

@@ -25,8 +25,6 @@ export default function useFetchPets(petsNameQuery) {
       Number(DOGS_PAGE_LIMIT)
     ).toString()
 
-    console.log(catsURL + randomCatsPage)
-
     try {
       let petsData = []
 

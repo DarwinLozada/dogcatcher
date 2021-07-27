@@ -7,6 +7,7 @@ export default function SEO() {
   return (
     <>
       <Head>
+        <title>DogCatcher</title>
         <meta name="theme-color" content={isDarkMode ? "#111010" : "#FFFCFC"} />
       </Head>
     </>

@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <UserProvider>
+        <div id="modal-container" />
         <Component {...pageProps} />
       </UserProvider>
     </ThemeProvider>
