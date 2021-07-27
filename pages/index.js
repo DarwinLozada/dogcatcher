@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 
 // Components
+import SEO from "../components/SEO/SEO"
 import Button from "../components/Buttons/Button/Button"
 import { HappyCat } from "../components/SvgIcons/SvgIcons"
 
@@ -11,6 +12,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-6 items-center justify-center bg-primaryBlack w-screen h-screen">
+      <SEO title="DogCatcher" />
       <Image
         src="/static/images/DogCatcher_dark.png"
         alt="DogCatcher Logo"

@@ -10,7 +10,7 @@ import { ModalContainer } from "../../stores/ModalsStore"
 export default function PageLayout({ children }) {
   return (
     <ToastContainer>
-      <SEO />
+      <SEO title="DogCatcher" />
       <ModalContainer>
         <div className="relative flex flex-col bg-lightBrown dark:bg-darkBg min-h-screen pb-24">
           <Header />
