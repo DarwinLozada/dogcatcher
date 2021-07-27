@@ -5,7 +5,7 @@ import UserNav from "./MobileNavComponents/UserNav/UserNav"
 import { DiscoverPetsIcon, HeartIcon } from "../SvgIcons/SvgIcons"
 
 // Dependencies
-import Link from "next/Link"
+import Link from "next/link"
 
 export default function MobileNav() {
   return (
