@@ -11,7 +11,7 @@ export default function Home() {
   const router = useRouter()
 
   return (
-    <div className="flex flex-col gap-6 items-center justify-center bg-primaryBlack w-screen h-screen">
+    <div className="flex flex-col gap-8 items-center px-10 justify-center bg-primaryBlack w-screen h-screen">
       <SEO title="DogCatcher" />
       <Image
         src="/static/images/DogCatcher_dark.png"
@@ -23,7 +23,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-primaryWhite">
         Welcome! to DogCatcher
       </h1>
-      <p className="text-lightBrown font-semibold text-xl">
+      <p className="text-lightBrown font-normal text-lg text-center">
         press the button if you want to see cute cats and dogs
       </p>
       <Button
