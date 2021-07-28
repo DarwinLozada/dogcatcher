@@ -2,9 +2,7 @@
 import { GithubIcon } from "../../../SvgIcons/SvgIcons"
 
 // Components
-import SignOutButton from "../../../Buttons/SignOutButton/SignOutButton"
 import Switch from "../../../Switch/Switch"
-import SignInButton from "../../../Buttons/SignInButton/SignInButton"
 import Spinner from "../../../Spinner/Spinner"
 
 // Dependencies
