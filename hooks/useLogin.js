@@ -19,6 +19,7 @@ export default function useLogin() {
         setloginError(null)
       })
       .catch((err) => {
+        console.log(err)
         setIsLoginLoading(false)
         toast("error", "There was an error with the login", "Please try again")
         setloginError(err)
