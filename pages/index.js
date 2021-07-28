@@ -20,7 +20,7 @@ export default function Home() {
         height={140}
         layout="intrinsic"
       />{" "}
-      <h1 className="text-3xl font-bold text-primaryWhite">
+      <h1 className="text-3xl text-center font-bold text-primaryWhite">
         Welcome! to DogCatcher
       </h1>
       <p className="text-lightBrown font-normal text-lg text-center">
