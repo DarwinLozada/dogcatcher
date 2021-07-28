@@ -12,7 +12,7 @@ export default function GoogleButton() {
     <button
       onClick={login}
       disabled={isLoginLoading}
-      className="flex gap-5 rounded-card bg-white items-center py-3 px-10 filter"
+      className="flex gap-5 transiton-all duration-300 rounded-card outline-none focus:outline-none focus:ring-2 ring-mediumPink bg-white items-center py-3 px-10 filter"
     >
       <GoogleIcon className="w-7" />
       <span>Sign in with Google</span>

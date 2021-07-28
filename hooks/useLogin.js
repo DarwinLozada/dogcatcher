@@ -15,6 +15,8 @@ export default function useLogin() {
     firebaseLogin()
       .then((user) => {
         dispatch({ type: "login", payload: user })
+        toast("success", "You've successfuly loged in!", "Enjoy your pets")
+
         setIsLoginLoading(false)
         setloginError(null)
       })
