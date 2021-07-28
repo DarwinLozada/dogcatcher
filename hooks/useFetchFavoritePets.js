@@ -11,12 +11,9 @@ export default function useFetchFavoritePets(petsNameQuery) {
   const { user } = useUser()
 
   const fetcher = (_, petsNameQuery) => {
-    return fetchFavoritePets(user.uid, petsNameQuery)
-      .then((petsQueryList) => {
-        console.log(mapPetDataFromDatabase(petsQueryList))
-        return mapPetDataFromDatabase(petsQueryList)
-      })
-      .catch((err) => console.log(err))
+    return fetchFavoritePets(user.uid, petsNameQuery).then((petsQueryList) =>
+      mapPetDataFromDatabase(petsQueryList)
+    )
   }
 
   const { data, error, mutate } = useSWR(
