@@ -7,20 +7,17 @@ import SignUpModal from "../../Modal/ModalComponents/SignUpModal/SignUpModal"
 
 // Dependencies
 import { addPetToFavorites } from "../../../firebase-services/database"
-import { useState, useCallback, useRef, useEffect } from "react"
-import { isDog } from "../../../utils/petFunctions"
+import { useState, useCallback, useEffect } from "react"
 import useUser from "../../../stores/UserStore"
 import useToast from "../../../stores/ToastsStore"
 import useModal from "../../../stores/ModalsStore"
 
-export default function AddToFavorites({ petInfo }) {
+export default function AddToFavorites({ petInfo, petSpecies }) {
   const [isAddingLoading, setIsAddingLoading] = useState(false)
   const { user } = useUser()
 
   const toast = useToast()
   const [setModalComponent, toggleModal] = useModal()
-
-  const isThePetADog = useRef(isDog(petInfo) ? "dogs" : "cats")
 
   const handleClick = useCallback(() => {
     if (user === null) {
@@ -29,7 +26,7 @@ export default function AddToFavorites({ petInfo }) {
       return
     }
     setIsAddingLoading(true)
-    addPetToFavorites(petInfo, isThePetADog.current, user.uid)
+    addPetToFavorites(petInfo, petSpecies, user.uid)
       .then(() => {
         toast(
           "success",

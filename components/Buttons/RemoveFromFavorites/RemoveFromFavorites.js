@@ -5,10 +5,10 @@ import useModal from "../../../stores/ModalsStore"
 import { DeleteIcon } from "../../SvgIcons/SvgIcons"
 import RemoveConfirmationModal from "../../Modal/ModalComponents/RemoveConfirmationModal/RemoveConfirmationModal"
 
-export default function RemoveFromFavorites({ petName, petSpecies }) {
+export default function RemoveFromFavorites({ petName, petSpecies, mutate }) {
   const [setModalComponent, toggleModal] = useModal()
   const handleClick = () => {
-    setModalComponent(RemoveConfirmationModal, { petName, petSpecies })
+    setModalComponent(RemoveConfirmationModal, { petName, petSpecies, mutate })
     toggleModal(true)
   }
 

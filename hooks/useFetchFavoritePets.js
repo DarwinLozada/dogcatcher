@@ -13,12 +13,13 @@ export default function useFetchFavoritePets(petsNameQuery) {
   const fetcher = (_, petsNameQuery) => {
     return fetchFavoritePets(user.uid, petsNameQuery)
       .then((petsQueryList) => {
+        console.log(mapPetDataFromDatabase(petsQueryList))
         return mapPetDataFromDatabase(petsQueryList)
       })
       .catch((err) => console.log(err))
   }
 
-  const { data, error } = useSWR(
+  const { data, error, mutate } = useSWR(
     () => (user.uid ? [petsQueryKeys.favoritePets, petsNameQuery] : null),
     fetcher
   )
@@ -27,5 +28,6 @@ export default function useFetchFavoritePets(petsNameQuery) {
     pets: data,
     petsError: error,
     petsAreLoading: !data && !error,
+    mutate,
   }
 }

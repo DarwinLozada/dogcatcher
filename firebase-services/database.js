@@ -41,6 +41,8 @@ export const addPetToFavorites = (petInfo, petSpecies, userUID) => {
 
 export const deletePetFromFavorites = (petSpecies, petName, userUID) => {
   const fieldToUpdate = `favorites.${petSpecies}`
+
+  console.log(fieldToUpdate)
   return database
     .collection("users")
     .doc(userUID)

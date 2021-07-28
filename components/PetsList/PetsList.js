@@ -11,11 +11,10 @@ import { filterPetsBySpecies } from "../../utils/petFunctions"
 import { sliceArrayBySteps } from "../../utils/arrayFunctions"
 import { petSpeciesFilter } from "../../constants/pets.contants"
 import Spinner from "../Spinner/Spinner"
-import DogCard from "../PetsCards/DogCard"
 
 export default function PetsList({ page }) {
   const [petsQuery, setPetsQuery] = useState("")
-  const { pets, petsError, petsAreLoading } = usePets(page, {
+  const { pets, petsError, petsAreLoading, mutate } = usePets(page, {
     petsQuery,
   })
 
@@ -24,7 +23,7 @@ export default function PetsList({ page }) {
   }
 
   const [petsChunks, setPetChunks] = useState([])
-  const [petsChunkToRender, setPetsChunkToRender] = useState(0)
+  const [petsChunkToRender] = useState(0)
   const [speciesFilter, setSpeciesFilter] = useState(petSpeciesFilter.all)
 
   useEffect(() => {
@@ -75,7 +74,7 @@ export default function PetsList({ page }) {
       ) : (
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
           {renderPets.map((pet) => (
-            <PetCard pet={pet} page={page} key={pet.name} />
+            <PetCard pet={pet} page={page} key={pet.name} mutate={mutate} />
           ))}
         </ul>
       )}

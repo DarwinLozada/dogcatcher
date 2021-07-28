@@ -20,7 +20,7 @@ import {
 import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
 import RemoveFromFavorites from "../Buttons/RemoveFromFavorites/RemoveFromFavorites"
 
-export default function DogCard({ petInfo, page }) {
+export default function DogCard({ petInfo, page, mutate }) {
   const {
     species,
     name,
@@ -124,9 +124,13 @@ export default function DogCard({ petInfo, page }) {
         </div>
         <div className="flex justify-end w-full mt-8 gap-4">
           {page === "discover" ? (
-            <AddToFavorites petInfo={petInfo} />
+            <AddToFavorites petInfo={petInfo} petSpecies="dogs" />
           ) : (
-            <RemoveFromFavorites petName={name} petSpecies="dogs" />
+            <RemoveFromFavorites
+              petName={name}
+              petSpecies="dogs"
+              mutate={mutate}
+            />
           )}
         </div>
       </section>

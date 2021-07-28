@@ -1,17 +1,17 @@
 // Dependencies
 import { useState } from "react"
 import { deletePetFromFavorites } from "../../../../firebase-services/database"
-import { mutate } from "swr"
 import useUser from "../../../../stores/UserStore"
 import useToast from "../../../../stores/ToastsStore"
 
 // Icon Components
 import { SadCat, SadDog, HappyCat, HappyDog } from "../../../SvgIcons/SvgIcons"
 
-export default function EliminateConfirmationModal({
+export default function RemoveConfirmationModal({
   petSpecies,
   petName,
   toggleModal,
+  mutate,
 }) {
   const [isRemoveLoading, setIsRemoveLoading] = useState(false)
   const { user } = useUser()
@@ -27,8 +27,8 @@ export default function EliminateConfirmationModal({
           `${petName} was removed from your favorites... Poor pet`
         )
         setIsRemoveLoading(false)
+        mutate()
         toggleModal(false)
-        mutate("favorite-pets")
       })
       .catch((err) => console.log(err))
   }

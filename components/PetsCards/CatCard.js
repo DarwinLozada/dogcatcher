@@ -20,7 +20,7 @@ import AddToFavorites from "../Buttons/AddToFavorites/AddToFavorites"
 import RemoveFromFavorites from "../Buttons/RemoveFromFavorites/RemoveFromFavorites"
 import MoreInfo from "../Buttons/MoreInfo/MoreInfo"
 
-export default function CatCard({ petInfo, page }) {
+export default function CatCard({ petInfo, page, mutate }) {
   const {
     species,
     name,
@@ -129,9 +129,13 @@ export default function CatCard({ petInfo, page }) {
             wikipediaURL={wikipediaURL}
           />
           {page === "discover" ? (
-            <AddToFavorites petInfo={petInfo} />
+            <AddToFavorites petInfo={petInfo} petSpecies="cats" />
           ) : (
-            <RemoveFromFavorites petName={name} petSpecies="cats" />
+            <RemoveFromFavorites
+              petName={name}
+              petSpecies="cats"
+              mutate={mutate}
+            />
           )}
         </div>
       </section>
