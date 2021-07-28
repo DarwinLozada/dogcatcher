@@ -11,6 +11,7 @@ import UserAvatar from "../UserAvatar/UserAvatar"
 import Button from "../Buttons/Button/Button"
 import IconButton from "../Buttons/IconButton/IconButton"
 import SettingsModal from "../../components/Modal/ModalComponents/SettingsModal/SettingsModal"
+import Spinner from "../Spinner/Spinner"
 import { SettingsIcon } from "../SvgIcons/SvgIcons"
 
 export default function Header() {
@@ -57,6 +58,7 @@ export default function Header() {
           <Button
             size="small"
             disabled={isLoginLoading}
+            endAdornment={isLoginLoading && <Spinner width="4" />}
             onClick={() => {
               login()
             }}

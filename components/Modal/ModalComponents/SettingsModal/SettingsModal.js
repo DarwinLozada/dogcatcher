@@ -5,13 +5,20 @@ import { GithubIcon } from "../../../SvgIcons/SvgIcons"
 import SignOutButton from "../../../Buttons/SignOutButton/SignOutButton"
 import Switch from "../../../Switch/Switch"
 import SignInButton from "../../../Buttons/SignInButton/SignInButton"
+import Spinner from "../../../Spinner/Spinner"
 
 // Dependencies
 import useDarkMode from "../../../../stores/ThemeStore"
 import useUser from "../../../../stores/UserStore"
+import Button from "../../../Buttons/Button/Button"
+import useSignOut from "../../../../hooks/useSignOut"
+import useLogin from "../../../../hooks/useLogin"
 
 export default function SettingsModal() {
   const [isDarkMode, toggleDarkMode] = useDarkMode()
+  const { isLoginLoading, login } = useLogin()
+  const { signOut } = useSignOut()
+
   const { user } = useUser()
 
   return (
@@ -35,7 +42,14 @@ export default function SettingsModal() {
         </div>
       </div>
       <div className="flex justify-end mt-8">
-        {user ? <SignOutButton /> : <SignInButton />}
+        <Button
+          size="small"
+          onClick={() => (user ? signOut() : login())}
+          disabled={isLoginLoading}
+          endAdornment={isLoginLoading && <Spinner width="4" />}
+        >
+          {user ? "Sign out" : "Sign in"}
+        </Button>
       </div>
     </div>
   )

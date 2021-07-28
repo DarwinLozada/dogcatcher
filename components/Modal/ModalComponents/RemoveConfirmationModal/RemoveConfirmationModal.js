@@ -34,7 +34,7 @@ export default function RemoveConfirmationModal({
   }
 
   return (
-    <div className="flex flex-col glassmorphism-gradient dark:dark-glassmorphism-gradient rounded-card mx-4 px-8 pt-16 pb-24 gap-12">
+    <div className="flex flex-col glassmorphism-gradient max-w-sm dark:dark-glassmorphism-gradient rounded-card mx-4 px-8 pt-16 pb-24 gap-12">
       <h3 className="text-center text-lg dark:text-primaryWhite">
         Are you sure you want to remove{" "}
         <span className="text-hardPink font-medium">{petName}</span> from your
