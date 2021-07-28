@@ -15,7 +15,7 @@ export default function useLogin() {
       .then(() => {
         dispatch({ type: "signOut" })
         toast(
-          "succesful",
+          "success",
           "You have signed out succesfuly",
           "Now you won't be able to add pets :("
         )
