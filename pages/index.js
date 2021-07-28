@@ -33,6 +33,9 @@ export default function Home() {
       >
         Start collecting pets!
       </Button>
+      <p className="text-white font-medium text-sm mt-36 text-center">
+        This project is still in development... Stay tuned for the final version
+      </p>
     </div>
   )
 }
