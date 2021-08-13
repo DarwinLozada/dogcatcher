@@ -31,7 +31,15 @@ export default function SettingsModal() {
       </div>
       <hr className="mt-4 mb-6 filter brightness-75" />
       <div className="flex items-center gap-12">
-        <GithubIcon className="w-10 fill-current text-mediumPink dark:text-hardPink" />
+        <a
+          target="_blank"
+          aria-label="Darwin Lozada's github account"
+          rel="noopener noreferrer"
+          href="https://github.com/DarwinLozada/dogcatcher"
+          className="filter hover:brightness-125 transition-all duration-300"
+        >
+          <GithubIcon className="w-10 fill-current text-mediumPink dark:text-hardPink" />
+        </a>
         <div>
           <p className="text-right text-black dark:text-primaryWhite">
             Made by

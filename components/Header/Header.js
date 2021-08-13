@@ -47,7 +47,9 @@ export default function Header() {
           <div className="flex gap-10">
             <div className="flex items-center gap-3">
               <UserAvatar avatarURL={user.avatar} username={user.name} />
-              <p className="text-white text-sm">{user.name}</p>
+              <p className="text-primaryBlack dark:text-white text-sm">
+                {user.name}
+              </p>
             </div>
             <Button size="small" onClick={() => router.push("/favorites")}>
               My favorites

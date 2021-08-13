@@ -67,7 +67,7 @@ export default function DogCard({ petInfo, page, mutate }) {
         </div>
       )}
       <section className="pet-info-section lg:flex-grow dark:dark-glassmorphism-gradient px-5 pt-8 pb-6">
-        <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-40 dark:opacity-[0.15]" />
+        <SideFaceDog className="absolute right-4 top-4 w-44 -z-10 opacity-90 dark:opacity-[0.15]" />
         <h3 className="font-medium text-2xl mb-4 dark:text-primaryWhite">
           {name}
         </h3>

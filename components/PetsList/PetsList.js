@@ -67,17 +67,26 @@ export default function PetsList({ page }) {
           setState={setSpeciesFilter}
         />
       </div>
-      {petsAreLoading || petsChunks.length === 0 ? (
+      {petsAreLoading ? (
         <div className="flex items-center mt-16 justify-center flex-grow">
           <Spinner width="8" />
         </div>
-      ) : (
+      ) : null}
+      {!petsAreLoading && petsChunks.length === 0 ? (
+        <div className="flex flex-col justify-center items-center gap-6 mt-12">
+          <h2 className="text-center font-medium text-primaryBlack dark:text-primaryWhite">
+            There are no pets with this name
+          </h2>
+          <SadCat className="w-16" />
+        </div>
+      ) : null}
+      {!petsAreLoading && petsChunks.length > 0 ? (
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 items-center justify-center gap-8 p-8 bg-softBrown dark:bg-primaryBlack px-4 rounded-card min-h-full flex-grow">
           {renderPets.map((pet) => (
             <PetCard pet={pet} page={page} key={pet.name} mutate={mutate} />
           ))}
         </ul>
-      )}
+      ) : null}
     </>
   )
 }
