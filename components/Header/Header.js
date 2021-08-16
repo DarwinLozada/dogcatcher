@@ -12,6 +12,7 @@ import Button from "../Buttons/Button/Button"
 import IconButton from "../Buttons/IconButton/IconButton"
 import SettingsModal from "../../components/Modal/ModalComponents/SettingsModal/SettingsModal"
 import Spinner from "../Spinner/Spinner"
+import Link from "next/link"
 import { SettingsIcon } from "../SvgIcons/SvgIcons"
 
 export default function Header() {
@@ -29,19 +30,21 @@ export default function Header() {
 
   return (
     <div className="flex justify-between items-center bg-primaryWhite dark:bg-primaryBlack min-h-[99px] max-h-[100px] w-full py-12 px-6">
-      <div>
-        <Image
-          src={`${
-            isDarkMode
-              ? "/static/images/DogCatcher_dark.png"
-              : "/static/images/DogCatcher.png"
-          }`}
-          alt="DogCatcher Logo"
-          width={120}
-          height={62}
-          layout="intrinsic"
-        />
-      </div>
+      <a className="hover:cursor-pointer">
+        <Link href="/discover">
+          <Image
+            src={`${
+              isDarkMode
+                ? "/static/images/DogCatcher_dark.png"
+                : "/static/images/DogCatcher.png"
+            }`}
+            alt="DogCatcher Logo"
+            width={120}
+            height={62}
+            layout="intrinsic"
+          />
+        </Link>
+      </a>
       <div className="hidden md:flex md:items-center gap-8">
         {user && (
           <div className="flex gap-10">

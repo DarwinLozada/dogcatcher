@@ -1,36 +1,21 @@
 // Dependencies
 import useSWR from "swr"
 import { returnShuffledArray } from "../utils/arrayFunctions"
-import { getRandomNumberWithMax } from "../utils/numberFunctions"
 import { petsQueryKeys, petSpecies } from "../constants/pets.contants"
-
-const BREEDS_LIMIT_PER_PAGE = "10"
 
 // These are the limit pages to request breeds in the TheCatApi and TheDogApi
 
-const CATS_PAGE_LIMIT = "6"
-const DOGS_PAGE_LIMIT = "17"
-
 export default function useFetchPets(petsNameQuery) {
-  const dogsURL = `https://api.thedogapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
+  const dogsURL = `https://api.thedogapi.com/v1/breeds`
   const dogsQueryURL = `https://api.thedogapi.com/v1/breeds/search?q=${petsNameQuery}`
-  const catsURL = `https://api.thecatapi.com/v1/breeds?limit=${BREEDS_LIMIT_PER_PAGE}&page=`
+  const catsURL = `https://api.thecatapi.com/v1/breeds`
   const catsQueryURL = `https://api.thecatapi.com/v1/breeds/search?q=${petsNameQuery}`
 
   const fetcher = async (_, petsNameQuery) => {
-    const randomCatsPage = getRandomNumberWithMax(
-      Number(CATS_PAGE_LIMIT)
-    ).toString()
-    const randomDogsPage = getRandomNumberWithMax(
-      Number(DOGS_PAGE_LIMIT)
-    ).toString()
-
     try {
       let petsData = []
 
-      let catsData = await fetch(
-        petsNameQuery ? catsQueryURL : catsURL + randomCatsPage
-      )
+      let catsData = await fetch(petsNameQuery ? catsQueryURL : catsURL)
 
       const parsedCatsData = await catsData.json()
 
@@ -41,9 +26,7 @@ export default function useFetchPets(petsNameQuery) {
 
       petsData = petsData.concat(catsData)
 
-      let dogsData = await fetch(
-        petsNameQuery ? dogsQueryURL : dogsURL + randomDogsPage
-      )
+      let dogsData = await fetch(petsNameQuery ? dogsQueryURL : dogsURL)
 
       const parsedDogsData = await dogsData.json()
 

@@ -25,7 +25,7 @@ export default function Button({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${colorMap[color]} font-medium flex transition-all duration-300 gap-2 
+      className={`${colorMap[color]} font-medium text-center justify-center flex transition-all duration-300 gap-2 
       items-center px-4 ${sizesMap[size]} py-3 rounded-md disabled:bg-lightBrown disabled:text-mediumPink 
       dark:disabled:bg-primaryGray disabled:cursor-wait`}
     >

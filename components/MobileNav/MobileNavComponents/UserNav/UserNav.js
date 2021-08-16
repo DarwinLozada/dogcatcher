@@ -19,7 +19,7 @@ export default function UserNav() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative flex items-center">
       {user === undefined && <Spinner width={"8"} />}
       <button
         onClick={displayUserMenu}
