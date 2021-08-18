@@ -9,7 +9,7 @@ export default function Input({
   onChange,
   RightIcon,
 }) {
-  const [isInputFocused, toggleFocus] = useState(true)
+  const [isInputFocused, toggleFocus] = useState(false)
 
   return (
     <div className={`${extraClassNames} flex flex-col gap-2`}>
