@@ -10,7 +10,10 @@ import usePets from "../../stores/PetsStore"
 import { useEffect, useState } from "react"
 import { filterPetsBySpecies, concatPetsChunks } from "../../utils/petFunctions"
 import { sliceArrayBySteps } from "../../utils/arrayFunctions"
-import { petSpeciesFilter } from "../../constants/pets.contants"
+import {
+  petSpeciesFilter,
+  NUMBER_PETS_PER_CHUNK,
+} from "../../constants/pets.contants"
 import Spinner from "../Spinner/Spinner"
 
 export default function PetsList({ page }) {
@@ -28,7 +31,7 @@ export default function PetsList({ page }) {
   const [speciesFilter, setSpeciesFilter] = useState(petSpeciesFilter.all)
 
   useEffect(() => {
-    if (pets) setPetChunks(sliceArrayBySteps(pets, 20))
+    if (pets) setPetChunks(sliceArrayBySteps(pets, NUMBER_PETS_PER_CHUNK))
   }, [pets])
 
   if (petsError)
@@ -50,6 +53,12 @@ export default function PetsList({ page }) {
     speciesFilter !== petSpeciesFilter.all
       ? filterPetsBySpecies(concanatedPetChunks, speciesFilter)
       : concanatedPetChunks
+
+  const shouldRenderShowMorePets =
+    !petsAreLoading &&
+    petsChunks.length > 1 &&
+    page === "discover" &&
+    petsChunksToRender !== petsChunksToRender.length - 1
 
   return (
     <>
@@ -95,10 +104,7 @@ export default function PetsList({ page }) {
           </ul>
         ) : null}
 
-        {!petsAreLoading &&
-        petsChunks.length > 0 &&
-        page === "discover" &&
-        petsChunksToRender !== petsChunksToRender.length - 1 ? (
+        {shouldRenderShowMorePets ? (
           <div className="my-8 flex justify-center">
             <Button
               onClick={() => setPetsChunksToRender((prev) => prev + 1)}

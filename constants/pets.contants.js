@@ -2,6 +2,8 @@ import routes from "./routes.constants"
 
 const { discover, favorites } = routes
 
+export const NUMBER_PETS_PER_CHUNK = 20
+
 export const petSpeciesFilter = {
   all: "All",
   dogs: "Dogs",
