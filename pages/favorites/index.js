@@ -21,7 +21,7 @@ export default function Favorites() {
   return (
     <PageLayout>
       <div className="flex flex-col flex-grow">
-        <h1 className="text-[34px] dark:text-primaryWhite font-medium mb-8">
+        <h1 className="text-4xl dark:text-primaryWhite font-medium mb-8">
           Your Favorites
         </h1>
         <PetsList page="favorites" />
