@@ -7,6 +7,7 @@ export default function Input({
   extraClassNames,
   disabled,
   onChange,
+  value,
   RightIcon,
 }) {
   const [isInputFocused, toggleFocus] = useState(false)
@@ -30,6 +31,7 @@ export default function Input({
             className="bg-primaryWhite dark:bg-primaryBlack dark:text-primaryWhite disabled:opacity-50 rounded-l-card text-sm pl-4 pr-8 w-full outline-none dark:placeholder-gray-400"
             placeholder={placeholder}
             disabled={disabled}
+            value={value}
             onFocus={() => toggleFocus(true)}
             onBlur={() => toggleFocus(false)}
             onChange={onChange}

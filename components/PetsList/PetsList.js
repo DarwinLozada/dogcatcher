@@ -17,7 +17,7 @@ import {
 import Spinner from "../Spinner/Spinner"
 
 export default function PetsList({ page }) {
-  const [petsQuery, setPetsQuery] = useState("")
+  const [petsQuery, setPetsQuery] = useState()
   const { pets, petsError, petsAreLoading, mutate } = usePets(page, {
     petsQuery,
   })
@@ -68,6 +68,7 @@ export default function PetsList({ page }) {
           label="Search by breed"
           typeOf="searchInput"
           extraClassNames="min-w-min sm:w-full sm:max-w-[500px]"
+          value={petsQuery}
           onChange={handleQueryChange}
           RightIcon={<SearchIcon className="w-5 h-5" />}
         />
